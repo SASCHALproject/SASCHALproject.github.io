@@ -1,9 +1,57 @@
+//Сброс CSS
+
+@import "_CSSReset";
+@import "_Normalize";
+
+
+//Настройки CSS
+
 @import "_header";
+
+
+//Переменные
+
+$fz: 16px;
+$color_1: #056;
+$color_2: #237;
+$color_3: red;
+$color_4: #983;
+
+
+//Шаблоны
+
+%tplborder {
+    border-bottom: 5px dashed red;
+}
+
+
+//Миксины
+
+@mixin fontz($f, $c) {
+    font-size: $f;
+    color: $c
+}
+
+
+//Стили
 
 body {
     font-size: 20px;
     div{
-        font-size: 10px;
+        font-size: $fz;
+        color: $color_1;
     }
 }
 
+.link {
+    color: $color_2;
+    @extend %tplborder;
+    .div & :hover {
+        @include fontz(100px, $color_4);
+    }
+}
+
+.cs2 {
+    background-color: #777;
+    width: 300px / 960px * 100%;
+}
