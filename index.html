@@ -12,6 +12,8 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- Стили -->
     <link rel="stylesheet" href="css\style.css">
+    <!-- JavaScript -->
+    <script type="text/javascript" language="JavaScript" src="js\card.js"></script>
 </head>
 
 <body>
@@ -249,7 +251,7 @@
 
             <div class="card bg-dark text-white border-light m-2" style="width: 18rem;">
                 <!--<div class="card-header bg-primary">VBA</div>-->
-                <img src="images/vba.png" class="img-thumbnail img-card" alt="vba">
+                <img src="images/vba.png" class="img-thumbnail img-card" alt="vba" />
                 <div class="card-body">
                     <h4 class="card-title text-center">VBA</h4>
                     <p class="card-text text-info">
@@ -269,13 +271,52 @@
                 </div>
             </div>
 
+
+            <!--<div id="foo"></div>-->
+            <script language="javascript">
+
+                //alert("Hello World");
+                //document.write("<h1>Hello World</h1>");
+
+                //var foo = document.getElementById('foo');
+                //foo.innerHTML = '<p><a href="http://рекламныйсайт.ru"><img border="0" src="reklama.jpg" width="200" height="150" alt="Апупенная реклама"></a> Апупенная реклама.</p>';
+
+                //foo.innerHTML = card_print();
+
+                caption = "VBA";
+                text = "Упрощённая реализация языка программирования Visual Basic, встроенная в линейку продуктов Microsoft Office.";
+                section = "VBA";
+                image = "vba";
+                card_print(caption, text, section, image);
+
+                caption = "VB.NET";
+                text = "";
+                section = "VB.NET";
+                image = "vbnet";
+                card_print(caption, text, section, image);
+
+                caption = "MS&nbsp;SQL";
+                text = "";
+                section = "MS&nbsp;SQL";
+                image = "";
+                card_print(caption, text, section, image);
+
+                caption = "Qlik&nbsp;Sense";
+                text = "";
+                section = "Qlik&nbsp;Sense";
+                image = "";
+                card_print(caption, text, section, image);
+
+            </script>
+
+
         </div>
 
     </div>
 
 
 
-    <div class="footer fixed-bottom text-center alert-primary">
+    <div class="footer fixed-bottom text-center text-muted m-2">
         <address>Copyright SASCHAL© 2002
             <!---2021</address>-->
             <script type="text/javascript">var mdate = new Date(); document.write('- ' + mdate.getFullYear());</script>
