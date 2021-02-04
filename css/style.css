@@ -226,37 +226,57 @@ template {
 }
 
 /*=======================*/
-header {
-  background: #000;
+/*header {
+    background-color: #5443F5;
 }
 
 h1 {
-  color: green;
-}
-
-.link {
-  border-bottom: 5px dashed red;
-}
-
+    color: green;
+}*/
+/*container {
+    min-width: 100%;
+}*/
+/*footer {
+    background-color: #5543f57a;
+    address {
+        font-size: 8px;
+    }
+}*/
 body {
-  font-size: 20px;
+  background-color: rgba(52, 58, 64, 0.92);
+  /*margin: 20px;*/
 }
 
-body div {
-  font-size: 16px;
-  color: #056;
+p.card-text {
+  margin-top: 4%;
+  margin-bottom: 4%;
 }
 
-.link {
-  color: #237;
+.img-card {
+  max-width: 96%;
+  height: auto;
+  margin: 2%;
 }
 
-.div .link :hover {
-  font-size: 100px;
-  color: #983;
-}
-
-.cs2 {
-  background-color: #777;
-  width: 31.25%;
-}
+/*div.card-footer {
+    margin-top: 2%;
+    margin-bottom: 0%;
+}*/
+/*body {
+    font-size: 20px;
+    div{
+        font-size: $fz;
+        color: $color_1;
+    }
+}*/
+/*.link {
+    color: $color_2;
+    @extend %tplborder;
+    .div & :hover {
+        @include fontz(100px, $color_4);
+    }
+}*/
+/*.cs2 {
+    background-color: #777;
+    width: 300px / 960px * 100%;
+}*/

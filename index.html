@@ -3,20 +3,301 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SASCHAL©</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Стили -->
     <link rel="stylesheet" href="css\style.css">
 </head>
 
 <body>
+
+    <div class="header">
+
+        <!--<div class="container">
+            <h1 class="display-1">SASCHAL©</h1>
+        </div>-->
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+            <a class="navbar-brand" href="#">SASCHAL©</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="btn-group nav nav-pills nav-justified" role="group"
+                aria-label="Button group with nested dropdown">
+
+                <button type="button" class="btn btn-primary nav-item">Главная</button>
+
+                <div class="btn-group nav-item" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        VBA
+                    </button>
+                    <div class="dropdown-menu bg-primary" aria-labelledby="btnGroupDrop1">
+                        <button type="button"
+                            class="btn btn-primary btn-block nav-item text-left">VBA&nbsp;Общее</button>
+                        <div class="dropdown-divider"></div>
+                        <button type="button"
+                            class="btn btn-primary btn-block nav-item text-left">VBA&nbsp;Access</button>
+                        <button type="button"
+                            class="btn btn-primary btn-block nav-item text-left">VBA&nbsp;Excel</button>
+                        <button type="button"
+                            class="btn btn-primary btn-block nav-item text-left">VBA&nbsp;Word</button>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary nav-item">VB.NET</button>
+
+                <button type="button" class="btn btn-primary nav-item">MS&nbsp;SQL</button>
+
+                <button type="button" class="btn btn-primary nav-item">Qlik&nbsp;Sense</button>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+    <div class="container">
+
+        <!--
+        <div class="row">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                        aria-controls="v-pills-home" aria-selected="true">Home</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                        aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                        aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+                        aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">aaa...</div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab">bbb...</div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                        aria-labelledby="v-pills-messages-tab">ccc...</div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                        aria-labelledby="v-pills-settings-tab">ddd...</div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- Nav tabs -->
+        <!--<ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                    aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                    aria-controls="profile" aria-selected="false">Profile</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab"
+                    aria-controls="messages" aria-selected="false">Messages</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab"
+                    aria-controls="settings" aria-selected="false">Settings</a>
+            </li>
+        </ul>-->
+
+        <!-- Tab panes -->
+        <!--<div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">aaa...</div>
+            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">bbb...</div>
+            <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">ccc...</div>
+            <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">ddd...</div>
+        </div>-->
+
+        <!-- <p><abbr title="Visual Basic for Applications - Visual Basic для приложений">VBA</abbr></p> -->
+
+        <!--
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>    
+        -->
+
+        <!--
+        <p class="lead">
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        </p>
+
+        <blockquote class="blockquote">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Кто-то знаменитый в <cite title="Название источника">Source Title</cite>
+            </footer>
+        </blockquote>
+        К примеру, <code>&lt;section&gt;</code> надо обертывать как блочный элемент.
+        <pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
+            &lt;p&gt;And another line of sample text here...&lt;/p&gt;
+            </code></pre>
+        <kbd><kbd>CTRL</kbd> + <kbd>C</kbd></kbd>
+        <samp>This text is meant to be treated as sample output from a computer program.</samp>
+        <figure class="figure">
+            <img src="https://svgsilh.com/svg/1801287.svg" class="img-fluid" style="max-width: 200px; height: auto;"
+                alt="Адаптивные изображения">
+            <figcaption class="figure-caption">Подпись к изображению выше.</figcaption>
+        </figure>
+        <div class="alert alert-primary" role="alert">
+            Это основное уведомление — check it out!
+        </div>
+        <div class="alert alert-info" role="alert">
+            Это инфо-уведомление — check it out!
+        </div>
+        <div class="alert alert-primary" role="alert">
+            Это основное уведомление с <a href="#" class="alert-link">примером ссылки</a>.
+        </div>
+        <div class="alert alert-info" role="alert">
+            Это инфо-уведомление с <a href="#" class="alert-link">примером ссылки</a>.
+        </div>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Отличная работа!</h4>
+            <p>Вы успешно прочитали это важное сообщение. Это пример текста немного длиннее, так что вы увидите, как
+                работают отступы в сообщениях уведомлений.</p>
+            <hr>
+            <p class="mb-0">Когда необходимо, используйте марджины для создания необходимых отступов.</p>
+        </div>
+
+        <h1>Пример заголовка <span class="badge badge-secondary">New</span></h1>
+        <button type="button" class="btn btn-primary">
+            Уведомления <span class="badge badge-light">4</span>
+        </button>
+        <button type="button" class="btn btn-primary">
+            Профиль <span class="badge badge-light">9</span>
+            <span class="sr-only">непрочитанных сообщений</span>
+        </button>
+        <span class="badge badge-primary">Главный</span>
+        <span class="badge badge-secondary">Вторичный</span>
+        <span class="badge badge-success">Успех</span>
+        <span class="badge badge-danger">Опасность</span>
+        <span class="badge badge-warning">Предупреждение</span>
+        <span class="badge badge-info">Инфо</span>
+        <span class="badge badge-light">Светлый</span>
+        <span class="badge badge-dark">Темный</span>
+        <span class="badge badge-pill badge-primary">Главный</span>
+        <span class="badge badge-pill badge-secondary">Вторичный</span>
+        <span class="badge badge-pill badge-success">Успех</span>
+        <span class="badge badge-pill badge-danger">Опасность</span>
+        <span class="badge badge-pill badge-warning">Предупреждение</span>
+        <span class="badge badge-pill badge-info">Инфо</span>
+        <span class="badge badge-pill badge-light">Светлый</span>
+        <span class="badge badge-pill badge-dark">Темный</span>
+        <a href="#" class="badge badge-primary">Главный</a>
+        <a href="#" class="badge badge-secondary">Вторичный</a>
+        <a href="#" class="badge badge-success">Успех</a>
+        <a href="#" class="badge badge-danger">Опасность</a>
+        <a href="#" class="badge badge-warning">Предупреждение</a>
+        <a href="#" class="badge badge-info">Инфо</a>
+        <a href="#" class="badge badge-light">Светлый</a>
+        <a href="#" class="badge badge-dark">Темный</a>
+        <button type="button" class="btn btn-info">Инфо</button>
+        <a class="btn btn-primary" href="#" role="button">Link</a>
+        <button class="btn btn-primary" type="submit">Button</button>
+        <input class="btn btn-primary" type="button" value="Input">
+        <input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-primary" type="reset" value="Reset">
+        <button type="button" class="btn btn-outline-info">Инфо</button>
+
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-secondary">1</button>
+            <button type="button" class="btn btn-secondary">2</button>
+
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" href="#">Выпадающая ссылка</a>
+                    <a class="dropdown-item" href="#">Выпадающая ссылка</a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Главная ссылка</a>
+        <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ссылка</a>
+        <button type="button" class="btn btn-lg btn-primary" disabled>Главная кнопка</button>
+        <button type="button" class="btn btn-secondary btn-lg" disabled>Кнопка</button>
+        -->
+
+        <!--
+            https://i.pinimg.com/originals/f2/72/14/f27214da15ae1cefc64c0c2ef52e7265.jpg
+            https://poisk-firm.ru/storage/employer/logo/96/0b/35/4720abb3ad2589ab06f21db61a.jpg
+            http://cdn.onlinewebfonts.com/svg/img_438485.png
+        -->
+
+
+        <div class="card-columns">
+
+            <div class="card bg-dark text-white border-light m-2" style="width: 18rem;">
+                <!--<div class="card-header bg-primary">VBA</div>-->
+                <img src="images/vba.png" class="img-thumbnail img-card" alt="vba">
+                <div class="card-body">
+                    <h4 class="card-title text-center">VBA</h4>
+                    <p class="card-text text-info">
+                        Упрощённая реализация языка программирования Visual Basic, встроенная в линейку продуктов
+                        Microsoft Office.
+                    </p>
+                    <div class="text-center">
+                        <a href="#" class="btn btn-info">Открыть</a>
+                    </div>
+                    <div class="text-right mt-3">
+                        <small class="text-muted">
+                            <footer class="blockquote-footer">Раздел
+                                <cite title="Название источника">VBA</cite>
+                            </footer>
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer fixed-bottom text-center">
+        <address>Copyright SASCHAL© 2002
+            <!---2021</address>-->
+            <script type="text/javascript">var mdate = new Date(); document.write('- ' + mdate.getFullYear());</script>
+        </address>
+    </div>
+
+    <!--
     <div class="cs1"></div>
     <div class="cs2">
         <div class="cs2_1">Здравствуйте</div>
         <img src="https://i.pinimg.com/736x/51/bf/81/51bf813b1170ddfae1bc9324ce546e3b.jpg" alt="Косатка" />
     </div>
     <a href="">Перейти</a>
+    -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>

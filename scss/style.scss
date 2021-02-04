@@ -4,9 +4,16 @@
 @import "_Normalize";
 
 
+//Bootstrap
+
+//@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+
+
 //Настройки CSS
 
 @import "_header";
+@import "_container";
+@import "_footer";
 
 
 //Переменные
@@ -16,6 +23,8 @@ $color_1: #056;
 $color_2: #237;
 $color_3: red;
 $color_4: #983;
+
+$color_bg: rgba(52, 58, 64, 0.920);
 
 
 //Шаблоны
@@ -36,22 +45,43 @@ $color_4: #983;
 //Стили
 
 body {
+    background-color: $color_bg;
+    /*margin: 20px;*/
+}
+
+p.card-text {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.img-card {
+    max-width: 96%; 
+    height: auto; 
+    margin: 2%;
+}
+
+/*div.card-footer {
+    margin-top: 2%;
+    margin-bottom: 0%;
+}*/
+
+/*body {
     font-size: 20px;
     div{
         font-size: $fz;
         color: $color_1;
     }
-}
+}*/
 
-.link {
+/*.link {
     color: $color_2;
     @extend %tplborder;
     .div & :hover {
         @include fontz(100px, $color_4);
     }
-}
+}*/
 
-.cs2 {
+/*.cs2 {
     background-color: #777;
     width: 300px / 960px * 100%;
-}
+}*/
