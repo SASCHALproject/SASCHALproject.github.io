@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>VBA Общее</title>
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="icon" href="../../favicon.ico">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Стили -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- JavaScript -->
+    <script type="text/javascript" language="JavaScript" src="../../js/card.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../../js/cardcollapse.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../../js/menu.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../../js/footer.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+
+        <!-- Меню -->
+        <script>
+            menu_print(false);
+        </script>
+
+    </div>
+
+    <div class="container p-4 bg-white">
+
+        <!-- Заголовок -->
+        <dl class="row">
+            <dt class="col-sm-2 align-self-center">
+                <img src="../../images/vba.png" style="max-height:128px; 
+                max-width:128px" class="border-0" alt="VBA Общее">
+            </dt>
+            <dd class="col-sm-3 align-self-center">
+                <div class="h2 text-primary">VBA&nbsp;Общее</div>
+            </dd>
+            <dd class="col-sm-7 align-self-center">
+                Упрощённая реализация языка программирования Visual&nbsp;Basic, встроенная в линейку продуктов
+                Microsoft&nbsp;Office.
+            </dd>
+        </dl>
+
+        <!-- Список -->
+        <div class="row">
+            <!-- Список (разделы) -->
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-01-tab" data-toggle="pill" href="#v-pills-01" role="tab"
+                        aria-controls="v-pills-01" aria-selected="true">Проводник</a>
+                    <a class="nav-link" id="v-pills-02-tab" data-toggle="pill" href="#v-pills-02" role="tab"
+                        aria-controls="v-pills-02" aria-selected="false">Дата-Время</a>
+                    <a class="nav-link" id="v-pills-03-tab" data-toggle="pill" href="#v-pills-03" role="tab"
+                        aria-controls="v-pills-03" aria-selected="false">Модули</a>
+                    <a class="nav-link" id="v-pills-04-tab" data-toggle="pill" href="#v-pills-04" role="tab"
+                        aria-controls="v-pills-04" aria-selected="false">Классы</a>
+                    <a class="nav-link" id="v-pills-05-tab" data-toggle="pill" href="#v-pills-05" role="tab"
+                        aria-controls="v-pills-05" aria-selected="false">Части кода</a>
+                    <a class="nav-link" id="v-pills-06-tab" data-toggle="pill" href="#v-pills-06" role="tab"
+                        aria-controls="v-pills-06" aria-selected="false">Другое</a>
+                </div>
+            </div>
+            <!-- Список (группы) -->
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="v-pills-01" role="tabpanel"
+                        aria-labelledby="v-pills-01-tab">
+
+                        <div class="h4 text-light bg-primary p-2">Проводник</div>
+
+                        <div id="accordion">
+
+                            <script language="javascript">
+
+                                caption = "Выбор каталога";
+                                text = "";
+                                id = "01";
+                                isshow = true;
+                                link = "SelectFolder.html";
+                                card_collapse_print(caption, text, id, isshow, link);
+
+                            </script>
+
+                        </div>
+
+                        <script language="javascript">
+
+                            caption = "Выбор каталога";
+                            text = "";
+                            section = "";
+                            image = "";
+                            link = "SelectFolder.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Открыть каталог";
+                            link = "OpenFolder.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Выбор файла(-ов)";
+                            link = "SelectFile.html";
+                            card_print(caption, text, section, image, link);
+
+                        </script>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-02" role="tabpanel" aria-labelledby="v-pills-02-tab">
+
+                        <div class="h4 text-light bg-primary p-2">Дата-Время</div>
+
+                        <script language="javascript">
+
+                            caption = "Преобразовать дату в строку";
+                            text = "";
+                            section = "";
+                            image = "";
+                            link = "DateToText.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Получить количество дней в году";
+                            link = "GetCountDayInYear.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Это високосный год";
+                            link = "IsLeapYear.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Количество дней в месяце";
+                            link = "DaysCountInMonth.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Получить номер месяца";
+                            link = "MonthNumber.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Получить имя месяца";
+                            link = "MonthName.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Получить номер недели";
+                            link = "WeekNumber.html";
+                            card_print(caption, text, section, image, link);
+
+                        </script>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-03" role="tabpanel" aria-labelledby="v-pills-03-tab">
+
+                        <div class="h4 text-light bg-primary p-2">Модули</div>
+
+                        <script language="javascript">
+
+                            caption = "Копирование файлов";
+                            text = "";
+                            section = "";
+                            image = "";
+                            link = "ShellFileCopy.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "GUID";
+                            link = "GUID.html";
+                            card_print(caption, text, section, image, link);
+
+                        </script>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-04" role="tabpanel" aria-labelledby="v-pills-04-tab">
+
+                        <div class="h4 text-light bg-primary p-2">Классы</div>
+
+                        <script language="javascript">
+
+                            caption = "Определение разрешения монитора пользователя";
+                            text = "";
+                            section = "";
+                            image = "";
+                            link = "PivotTableWithQueryToSheets.html";
+                            card_print(caption, text, section, image, link);
+
+                        </script>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-05" role="tabpanel" aria-labelledby="v-pills-05-tab">
+
+                        <div class="h4 text-light bg-primary p-2">Части кода</div>
+
+                        <script language="javascript">
+
+                            caption = "Перебор объектов на форме";
+                            text = "";
+                            section = "";
+                            image = "";
+                            link = "ForEachControls.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "SQL - получить данные из листа Excel";
+                            link = "SQLFromExcelSheet.html";
+                            card_print(caption, text, section, image, link);
+
+                        </script>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-06" role="tabpanel" aria-labelledby="v-pills-06-tab">
+
+                        <div class="h4 text-light bg-primary p-2">Другое</div>
+
+                        <!--<div class="card-columns">-->
+
+                        <script language="javascript">
+
+                            caption = "Поменять местами значения переменных";
+                            text = "";
+                            section = "";
+                            image = "";
+                            link = "swap.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Остановка выполнения программы на определённое время";
+                            link = "Sleep.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Автозакрывающееся окно MsgBox";
+                            link = "MsgBoxExt.html";
+                            card_print(caption, text, section, image, link);
+
+                            caption = "Текст по словам";
+                            link = "TextByWords.html";
+                            card_print(caption, text, section, image, link);
+
+                        </script>
+
+                        <!--</div>-->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Подвал -->
+    <script language="javascript">
+        footer_print();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

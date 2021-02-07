@@ -1,0 +1,28 @@
+
+/*=======================*/
+
+/* SAS Style */
+
+.KeyWord { 
+     color: DarkBlue; /* Тёмно-синий цвет символов */ 
+    }
+.KeyComment { 
+     color: Green; /* Зелёный цвет символов */ 
+    }
+.blockCode { 
+    display: table-cell;
+    font-size: 75%;
+    background: #FFFFD2;
+    padding: 10px;
+    border: solid 1px #7A67EE;
+    border-radius: 5px;
+   }
+.fixedPosition {
+    background: none;
+    text-align:center;
+    position:fixed;
+    bottom: 20;
+    right: 20;
+   }
+
+/*=======================*/

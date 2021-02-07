@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SASCHAL©</title>
     <link rel="shortcut icon" href="favicon.ico">
@@ -14,6 +15,8 @@
     <link rel="stylesheet" href="css\style.css">
     <!-- JavaScript -->
     <script type="text/javascript" language="JavaScript" src="js\card.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js\menu.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js\footer.js"></script>
 </head>
 
 <body>
@@ -24,7 +27,11 @@
             <h1 class="display-1">SASCHAL©</h1>
         </div>-->
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <script>
+            menu_print(true);
+        </script>
+
+        <!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
             <a class="navbar-brand" href="#">SASCHAL©</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -43,27 +50,30 @@
                         VBA
                     </button>
                     <div class="dropdown-menu bg-primary" aria-labelledby="btnGroupDrop1">
-                        <button type="button"
-                            class="btn btn-primary btn-block nav-item text-left">VBA&nbsp;Общее</button>
+                        <button type="button" class="btn btn-primary btn-block nav-item text-left"
+                            onclick="location.href = 'pages\\VBAGeneral\\VBAGeneral.html';">VBA&nbsp;Общее</button>
                         <div class="dropdown-divider"></div>
-                        <button type="button"
-                            class="btn btn-primary btn-block nav-item text-left">VBA&nbsp;Access</button>
-                        <button type="button"
-                            class="btn btn-primary btn-block nav-item text-left">VBA&nbsp;Excel</button>
-                        <button type="button"
-                            class="btn btn-primary btn-block nav-item text-left">VBA&nbsp;Word</button>
+                        <button type="button" class="btn btn-primary btn-block nav-item text-left"
+                            onclick="location.href = 'pages\\VBAAccess\\VBAAccess.html';">VBA&nbsp;Access</button>
+                        <button type="button" class="btn btn-primary btn-block nav-item text-left"
+                            onclick="location.href = 'pages\\VBAExcel\\VBAExcel.html';">VBA&nbsp;Excel</button>
+                        <button type="button" class="btn btn-primary btn-block nav-item text-left"
+                            onclick="location.href = 'pages\\VBAWord\\VBAWord.html';">VBA&nbsp;Word</button>
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary nav-item">VB.NET</button>
+                <button type="button" class="btn btn-primary nav-item"
+                    onclick="location.href = 'pages\\VBNET\\VBNET.html';">VB.NET</button>
 
-                <button type="button" class="btn btn-primary nav-item">MS&nbsp;SQL</button>
+                <button type="button" class="btn btn-primary nav-item"
+                    onclick="location.href = 'pages\\MSSQL\\MSSQL.html';">MS&nbsp;SQL</button>
 
-                <button type="button" class="btn btn-primary nav-item">Qlik&nbsp;Sense</button>
+                <button type="button" class="btn btn-primary nav-item"
+                    onclick="location.href = 'pages\\QlikSense\\QlikSense.html';">Qlik&nbsp;Sense</button>
 
             </div>
 
-        </nav>
+        </nav>-->
 
     </div>
 
@@ -249,9 +259,9 @@
 
         <div class="card-columns">
 
-            <div class="card bg-dark text-white border-light m-2" style="width: 18rem;">
-                <!--<div class="card-header bg-primary">VBA</div>-->
-                <img src="images/vba.png" class="img-thumbnail img-card" alt="vba" />
+            <!--<<div class="card bg-dark text-white border-light m-2" style="width: 18rem;">-->
+            <!--<div class="card-header bg-primary">VBA</div>-->
+            <!--<    <img src="images/vba.png" class="img-thumbnail img-card" alt="vba" />
                 <div class="card-body">
                     <h4 class="card-title text-center">VBA</h4>
                     <p class="card-text text-info">
@@ -269,7 +279,7 @@
                         </small>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
 
             <!--<div id="foo"></div>-->
@@ -283,31 +293,59 @@
 
                 //foo.innerHTML = card_print();
 
-                caption = "VBA";
+                caption = "VBA Общее";
                 text = "Упрощённая реализация языка программирования Visual Basic, встроенная в линейку продуктов Microsoft Office.";
-                section = "VBA";
+                section = "VBA Общее";
                 image = "vba";
-                card_print(caption, text, section, image);
+                link = "pages/VBAGeneral/VBAGeneral.html";
+                card_print(caption, text, section, image, link);
+
+                caption = "VBA Access";
+                text = "";
+                section = "VBA Access";
+                image = "access";
+                link = "pages/VBAAccess/VBAAccess.html";
+                card_print(caption, text, section, image, link);
+
+                caption = "VBA Excel";
+                text = "";
+                section = "VBA Excel";
+                image = "excel";
+                link = "pages/VBAExcel/VBAExcel.html";
+                card_print(caption, text, section, image, link);
+
+                caption = "VBA Word";
+                text = "";
+                section = "VBA Word";
+                image = "word";
+                link = "pages/VBAWord/VBAWord.html";
+                card_print(caption, text, section, image, link);
 
                 caption = "VB.NET";
                 text = "";
                 section = "VB.NET";
                 image = "vbnet";
-                card_print(caption, text, section, image);
+                link = "pages/VBNET/VBNET.html";
+                card_print(caption, text, section, image, link);
 
                 caption = "MS&nbsp;SQL";
                 text = "";
                 section = "MS&nbsp;SQL";
-                image = "";
-                card_print(caption, text, section, image);
+                image = "mssql";
+                link = "pages/MSSQL/MSSQL.html";
+                card_print(caption, text, section, image, link);
 
                 caption = "Qlik&nbsp;Sense";
                 text = "";
                 section = "Qlik&nbsp;Sense";
-                image = "";
-                card_print(caption, text, section, image);
+                image = "qliksense";
+                link = "pages/QlikSense/QlikSense.html";
+                card_print(caption, text, section, image, link);
 
             </script>
+
+
+
 
 
         </div>
@@ -316,12 +354,16 @@
 
 
 
-    <div class="footer fixed-bottom text-center text-muted m-2">
-        <address>Copyright SASCHAL© 2002
-            <!---2021</address>-->
-            <script type="text/javascript">var mdate = new Date(); document.write('- ' + mdate.getFullYear());</script>
+    <!--<div class="footer fixed-bottom text-center text-muted m-2">
+        <address>Copyright SASCHAL© 2002-->
+    <!---2021</address>-->
+    <!--<script type="text/javascript">var mdate = new Date(); document.write('- ' + mdate.getFullYear());</script>
         </address>
-    </div>
+    </div>-->
+
+    <script language="javascript">
+        footer_print();
+    </script>
 
     <!--
     <div class="cs1"></div>
