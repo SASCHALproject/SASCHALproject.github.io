@@ -1,8 +1,16 @@
 function card_collapse_print(caption = "",
-    text = "",
     id = "",
+    idParent = "",
     isshow = false,
     link = "#") {
+    if (!link || 0 === link.length || link === "#") {
+        link = '';
+    }
+    else {
+        link = '<div class="blockCode">' +
+            '       <script src="' + link + '"></script>' +
+            '   </div>';
+    }
     if (isshow) {
         isshow = 'show';
     }
@@ -24,9 +32,9 @@ function card_collapse_print(caption = "",
         '    <div id="collapse' + id + '"' +
         '        class="collapse ' + isshow + '"' +
         '        aria-labelledby="heading' + id + '"' +
-        '        data-parent="#accordion">' +
+        '        data-parent="#accordion' + idParent + '">' +
         '        <div class="card-body">' +
-        '            ' + text +
+        '            ' + link +
         '        </div>' +
         '    </div>' +
         '</div>');

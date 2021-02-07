@@ -1,0 +1,9 @@
+document.write("        <div class=&quot;blockCode&quot;>\
+            <span class=&quot;KeyComment&quot;>'отображение&nbspокна&nbspвыбора&nbspкаталога</span><br />\
+            <span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>GetFolderPath(<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>hwnd&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long&nbsp</span>=&nbsp&H0)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+            &nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Dim&nbsp</span>wshell:&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>wshell&nbsp=&nbspCreateObject(&quot;Shell.Application&quot;)<br />\
+            &nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Dim&nbsp</span>q:&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>q&nbsp=&nbspwshell.BrowseForFolder(hwnd,&nbsp&quot;&nbspВыберите&nbspкаталог:&quot;,&nbsp&H1,&nbsp17)<br />\
+            &nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span><span class=&quot;KeyWord&quot;>Not&nbsp</span>q&nbspIs&nbsp<span class=&quot;KeyWord&quot;>Nothing&nbsp</span><span class=&quot;KeyWord&quot;>Then&nbsp</span>GetFolderPath&nbsp=&nbspIIf(Dir(q.Self.Path,&nbspvbDirectory)&nbsp&lt;&gt;\
+            &nbsp&quot;&quot;,&nbspq.Self.Path,&nbsp&quot;&quot;)<br />\
+            <span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+        </div>");

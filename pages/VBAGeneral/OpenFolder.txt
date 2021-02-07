@@ -1,0 +1,11 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'открытие каталога в проводнике</span><br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Sub</span>&nbsp;ShellFolder(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Path&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>)<br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;bool&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Boolean</span>:&nbsp;bool&nbsp;=&nbsp;Shell(&quot;explorer.exe &quot;&nbsp;+&nbsp;Path&nbsp;+&nbsp;IIf(Right$(Path,&nbsp;1)&nbsp;<>&nbsp;&quot;\&quot;,&nbsp;&quot;\&quot;,&nbsp;&quot;&quot;),&nbsp;1)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Sub</span><br />\
+<br />\
+<span class=&quot;KeyComment&quot;>'выбор каталога и открытие в проводнике</span><br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp;Sub</span>&nbsp;ВызовФункции_ShellFolder&nbsp;()<br />\
+<span class=&quot;KeyWord&quot;>Call</span>&nbsp;ShellFolder(GetFolderPath)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Sub</span><br />\
+");

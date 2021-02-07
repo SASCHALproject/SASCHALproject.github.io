@@ -1,0 +1,41 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_ofd2()<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>FileNames()&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>FileFolder&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>:&nbspFileFolder&nbsp=&nbsp&quot;&quot;<br />\
+FileNames&nbsp=&nbspofd2(,&nbspFileFolder)<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>FileNames(0)&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>MsgBox&nbsp&quot;Не&nbspвыбран(-ы)&nbspфайл(-ы)!&quot;&nbsp+&nbspvbCrLf&nbsp+&nbsp&quot;Отменено.&quot;,&nbsp16,&nbsp&quot;&quot;:&nbsp<span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<span class=&quot;KeyWord&quot;>For&nbsp</span>i&nbsp=&nbsp0&nbsp<span class=&quot;KeyWord&quot;>To&nbsp</span>UBound(FileNames)<br />\
+&nbsp&nbsp&nbsp&nbspMsgBox&nbspFileNames(i)<br />\
+<span class=&quot;KeyWord&quot;>Next&nbsp</span>i<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<br />\
+<span class=&quot;KeyComment&quot;>'получение&nbspсписка&nbspURL&nbspв&nbspмассиве</span><br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>ofd2(<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>ofdFilter&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;&quot;,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByRef&nbsp</span>ofdFolder&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;&quot;)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>()<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>i&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+<span class=&quot;KeyWord&quot;>With&nbsp</span>Application.FileDialog(3)<br />\
+&nbsp&nbsp&nbsp&nbsp.ButtonName&nbsp=&nbsp&quot;Выбрать&quot;<br />\
+&nbsp&nbsp&nbsp&nbsp.Title&nbsp=&nbspTitle<br />\
+&nbsp&nbsp&nbsp&nbsp.InitialFileName&nbsp=&nbspInitialPath<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>Trim$(ofdFilter)&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>ofdFilter&nbsp=&nbsp&quot;Excel&nbspFiles&nbsp(*.xls;*.xlsx;*.xlsb;*.xlsm)&quot;&nbsp+&nbspChr$(0)&nbsp+&nbsp&quot;*.xls;*.xlsx;*.xlsb;*.xlsm&quot;&nbsp+&nbspChr$(0)&nbsp+&nbsp&quot;All&nbspFiles&nbsp(*.*)&quot;&nbsp+&nbspChr$(0)&nbsp+&nbsp&quot;*.*&quot;&nbsp+&nbspChr$(0)<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Dim&nbsp</span>masF()&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+&nbsp&nbsp&nbsp&nbspmasF&nbsp=&nbspSplit(ofdFilter,&nbspChr(0))<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>UBound(masF)&nbspMod&nbsp2&nbsp=&nbsp0&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp.Filters.Clear<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>For&nbsp</span>i&nbsp=&nbsp0&nbsp<span class=&quot;KeyWord&quot;>To&nbsp</span>UBound(masF)&nbsp-&nbsp1&nbsp<span class=&quot;KeyWord&quot;>Step&nbsp</span>2<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp.Filters.Add&nbspTrim$(Left$(masF(i),&nbspInStr(masF(i),&nbsp&quot;(&quot;)&nbsp-&nbsp1)),&nbspmasF(i&nbsp+&nbsp1)<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Next&nbsp</span>i<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>.Show&nbsp<>&nbsp-1&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>ReDim&nbspofd2(0):&nbsp<span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>GetFilenamesCollection&nbsp=&nbsp.SelectedItems<br />\
+&nbsp&nbsp&nbsp&nbspofdFolder&nbsp=&nbsp.InitialFileName<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>With</span><br />\
+i&nbsp=&nbsp0<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>mas()&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>For&nbsp</span><span class=&quot;KeyWord&quot;>Each&nbsp</span>O&nbsp<span class=&quot;KeyWord&quot;>In&nbsp</span>GetFilenamesCollection<br />\
+&nbsp&nbsp&nbsp&nbspReDim&nbspPreserve&nbspmas(i)<br />\
+&nbsp&nbsp&nbsp&nbspmas(i)&nbsp=&nbspO<br />\
+&nbsp&nbsp&nbsp&nbspi&nbsp=&nbspi&nbsp+&nbsp1<br />\
+<span class=&quot;KeyWord&quot;>Next</span><br />\
+ofd2&nbsp=&nbspmas<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

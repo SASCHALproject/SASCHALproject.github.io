@@ -35,14 +35,14 @@
 
         <!-- Заголовок -->
         <dl class="row">
-            <dt class="col-sm-2 align-self-center">
+            <dt class="col col-md-2 align-self-center">
                 <img src="../../images/vba.png" style="max-height:128px; 
                 max-width:128px" class="border-0" alt="VBA Общее">
             </dt>
-            <dd class="col-sm-3 align-self-center">
+            <dd class="col col-md-3 align-self-center">
                 <div class="h2 text-primary">VBA&nbsp;Общее</div>
             </dd>
-            <dd class="col-sm-7 align-self-center">
+            <dd class="col align-self-center">
                 Упрощённая реализация языка программирования Visual&nbsp;Basic, встроенная в линейку продуктов
                 Microsoft&nbsp;Office.
             </dd>
@@ -76,21 +76,39 @@
 
                         <div class="h4 text-light bg-primary p-2">Проводник</div>
 
-                        <div id="accordion">
+                        <div id="accordionP001">
+
+                            <!--
+                            <div class="blockCode">
+                                <script src="SelectFolder.txt"></script>
+                            </div>
+                            <script src="SelectFolder2.html"></script>
+                            -->
 
                             <script language="javascript">
 
+                                idParent = "P001";
+
                                 caption = "Выбор каталога";
-                                text = "";
-                                id = "01";
-                                isshow = true;
-                                link = "SelectFolder.html";
-                                card_collapse_print(caption, text, id, isshow, link);
+                                id = "001";
+                                link = "SelectFolder.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Открыть каталог";
+                                id = "002";
+                                link = "OpenFolder.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Выбор файла(-ов)";
+                                id = "003";
+                                link = "SelectFile.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
 
                             </script>
 
                         </div>
 
+                        <!--
                         <script language="javascript">
 
                             caption = "Выбор каталога";
@@ -109,6 +127,7 @@
                             card_print(caption, text, section, image, link);
 
                         </script>
+                        -->
 
                     </div>
 
@@ -116,6 +135,52 @@
 
                         <div class="h4 text-light bg-primary p-2">Дата-Время</div>
 
+                        <div id="accordionP002">
+
+                            <script language="javascript">
+
+                                idParent = "P002";
+
+                                caption = "Преобразовать дату в строку";
+                                id = "004";
+                                link = "DateToText.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Получить количество дней в году";
+                                id = "005";
+                                link = "GetCountDayInYear.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Это високосный год";
+                                id = "006";
+                                link = "IsLeapYear.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Количество дней в месяце";
+                                id = "007";
+                                link = "DaysCountInMonth.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Получить номер месяца";
+                                id = "008";
+                                link = "MonthNumber.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Получить имя месяца";
+                                id = "009";
+                                link = "MonthName.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Получить номер недели";
+                                id = "010";
+                                link = "WeekNumber.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                            </script>
+
+                        </div>
+
+                        <!--
                         <script language="javascript">
 
                             caption = "Преобразовать дату в строку";
@@ -150,6 +215,7 @@
                             card_print(caption, text, section, image, link);
 
                         </script>
+                        -->
 
                     </div>
 
@@ -157,6 +223,27 @@
 
                         <div class="h4 text-light bg-primary p-2">Модули</div>
 
+                        <div id="accordionP003">
+
+                            <script language="javascript">
+
+                                idParent = "P003";
+
+                                caption = "Копирование файлов";
+                                id = "011";
+                                link = "ShellFileCopy.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "GUID";
+                                id = "012";
+                                link = "GUID.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                            </script>
+
+                        </div>
+
+                        <!--
                         <script language="javascript">
 
                             caption = "Копирование файлов";
@@ -171,6 +258,7 @@
                             card_print(caption, text, section, image, link);
 
                         </script>
+                        -->
 
                     </div>
 
@@ -178,6 +266,22 @@
 
                         <div class="h4 text-light bg-primary p-2">Классы</div>
 
+                        <div id="accordionP004">
+
+                            <script language="javascript">
+
+                                idParent = "P004";
+
+                                caption = "Определение разрешения монитора пользователя";
+                                id = "013";
+                                link = "PivotTableWithQueryToSheets.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                            </script>
+
+                        </div>
+
+                        <!--
                         <script language="javascript">
 
                             caption = "Определение разрешения монитора пользователя";
@@ -188,6 +292,7 @@
                             card_print(caption, text, section, image, link);
 
                         </script>
+                        -->
 
                     </div>
 
@@ -195,6 +300,27 @@
 
                         <div class="h4 text-light bg-primary p-2">Части кода</div>
 
+                        <div id="accordionP005">
+
+                            <script language="javascript">
+
+                                idParent = "P005";
+
+                                caption = "Перебор объектов на форме";
+                                id = "014";
+                                link = "ForEachControls.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "SQL - получить данные из листа Excel";
+                                id = "015";
+                                link = "SQLFromExcelSheet.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                            </script>
+
+                        </div>
+
+                        <!--
                         <script language="javascript">
 
                             caption = "Перебор объектов на форме";
@@ -209,6 +335,7 @@
                             card_print(caption, text, section, image, link);
 
                         </script>
+                        -->
 
                     </div>
 
@@ -218,6 +345,37 @@
 
                         <!--<div class="card-columns">-->
 
+                        <div id="accordionP006">
+
+                            <script language="javascript">
+
+                                idParent = "P006";
+
+                                caption = "Поменять местами значения переменных";
+                                id = "016";
+                                link = "swap.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Остановка выполнения программы на определённое время";
+                                id = "017";
+                                link = "Sleep.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Автозакрывающееся окно MsgBox";
+                                id = "018";
+                                link = "MsgBoxExt.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Текст по словам";
+                                id = "019";
+                                link = "TextByWords.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                            </script>
+
+                        </div>
+
+                        <!--
                         <script language="javascript">
 
                             caption = "Поменять местами значения переменных";
@@ -240,6 +398,7 @@
                             card_print(caption, text, section, image, link);
 
                         </script>
+                        -->
 
                         <!--</div>-->
 
