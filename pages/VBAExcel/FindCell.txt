@@ -1,0 +1,15 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;FindCell(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;oSheet&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Excel.Worksheet,&nbsp;<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Value&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>,&nbsp;<span class=&quot;KeyWord&quot;>Optional&nbsp;ByVal</span>&nbsp;IsToA1Select&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Boolean</span>&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>True</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span><br />\
+FindCell&nbsp;=&nbsp;&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>On&nbsp;Error&nbsp;Resume&nbsp;Next</span><br />\
+<span class=&quot;KeyWord&quot;>If</span>&nbsp;IsToA1Select&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;oSheet.Cells(1,&nbsp;1).<span class=&quot;KeyWord&quot;>Select</span><br />\
+<span class=&quot;KeyWord&quot;>On&nbsp;Error&nbsp;GoTo</span>&nbsp;0<br />\
+<span class=&quot;KeyWord&quot;>On&nbsp;Error&nbsp;GoTo</span>&nbsp;label_err<br />\
+FindCell&nbsp;=&nbsp;oSheet.Cells.Find(What:=Value,&nbsp;After:=oSheet.Cells(1,&nbsp;1),&nbsp;LookIn:=xlFormulas,&nbsp;LookAt&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=xlPart,&nbsp;SearchOrder:=xlByRows,&nbsp;SearchDirection:=xlNext,&nbsp;MatchCase:=&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>False</span>,&nbsp;SearchFormat:=<span class=&quot;KeyWord&quot;>False</span>).Address<br />\
+<span class=&quot;KeyWord&quot;>Exit&nbsp;Function</span><br />\
+label_err:<br />\
+FindCell&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNA<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

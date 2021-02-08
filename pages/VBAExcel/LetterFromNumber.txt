@@ -1,0 +1,13 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;БукваСтолбца(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;НомерСтолбца&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span><br />\
+<span class=&quot;KeyWord&quot;>On&nbsp;Error&nbsp;GoTo</span>&nbsp;label_err<br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;АдресЯчейки&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span><br />\
+<span class=&quot;KeyWord&quot;>If</span>&nbsp;НомерСтолбца&nbsp;<=&nbsp;0&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;БукваСтолбца&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNum<span class=&quot;KeyWord&quot;>)</span>:&nbsp;<span class=&quot;KeyWord&quot;>Exit&nbsp;Function</span><br />\
+АдресЯчейки&nbsp;=&nbsp;Application.ConvertFormula(&quot;rc&quot;&nbsp;&&nbsp;<span class=&quot;KeyWord&quot;>CStr(</span>НомерСтолбца<span class=&quot;KeyWord&quot;>)</span>,&nbsp;xlR1C1,&nbsp;xlA1,&nbsp;xlAbsRowRelColumn)<br />\
+<span class=&quot;KeyWord&quot;>If</span>&nbsp;InStr(1,&nbsp;АдресЯчейки,&nbsp;&quot;$&quot;)&nbsp;=&nbsp;0&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;БукваСтолбца&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNum<span class=&quot;KeyWord&quot;>)</span>:&nbsp;<span class=&quot;KeyWord&quot;>Exit&nbsp;Function</span><br />\
+БукваСтолбца&nbsp;=&nbsp;Split(АдресЯчейки,&nbsp;&quot;$&quot;)(0)<br />\
+<span class=&quot;KeyWord&quot;>Exit&nbsp;Function</span><br />\
+label_err:<br />\
+БукваСтолбца&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNum<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

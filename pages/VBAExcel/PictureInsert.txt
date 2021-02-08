@@ -1,0 +1,20 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Private&nbsp;Sub</span>&nbsp;ВызовФункции_ВставкаИзображения()<br />\
+ActiveSheet.Columns(&quot;A:A&quot;).ColumnWidth&nbsp;=&nbsp;31<br />\
+ActiveSheet.Rows(&quot;1:1&quot;).RowHeight&nbsp;=&nbsp;174.75<br />\
+bool&nbsp;=&nbsp;ВставкаИзображения(&quot;C:\Изображение.png&quot;,&nbsp;ActiveSheet.Range(&quot;A1&quot;))<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Sub</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;ВставкаИзображения(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;ПутьКФайлу&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>,&nbsp;<span class=&quot;KeyWord&quot;>Optional&nbsp;ByRef</span>&nbsp;Ячейка&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Range&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>Nothing</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Boolean</span><br />\
+<span class=&quot;KeyWord&quot;>On&nbsp;Error&nbsp;GoTo</span>&nbsp;label_err<br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Изображение&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Shape<br />\
+<span class=&quot;KeyWord&quot;>If</span>&nbsp;Ячейка&nbsp;Is&nbsp;<span class=&quot;KeyWord&quot;>Nothing&nbsp;Then&nbsp;Set</span>&nbsp;Ячейка&nbsp;=&nbsp;ActiveCell<br />\
+<span class=&quot;KeyWord&quot;>Set</span>&nbsp;Изображение&nbsp;=&nbsp;ActiveSheet.Shapes.AddPicture(ПутьКФайлу,&nbsp;msoFalse,&nbsp;msoTrue,&nbsp;Ячейка.Left,&nbsp;Ячейка.Top,&nbsp;-1,&nbsp;-1)<br />\
+Изображение.Height&nbsp;=&nbsp;Ячейка.Height<br />\
+Изображение.Left&nbsp;=&nbsp;Ячейка.Left&nbsp;+&nbsp;(Ячейка.Width&nbsp;-&nbsp;Изображение.Width)&nbsp;/&nbsp;2<br />\
+ВставкаИзображения&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>True</span><br />\
+<span class=&quot;KeyWord&quot;>Exit&nbsp;Function</span><br />\
+label_err:<br />\
+ВставкаИзображения&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>False</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

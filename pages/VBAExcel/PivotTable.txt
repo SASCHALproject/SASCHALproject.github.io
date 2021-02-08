@@ -1,0 +1,12 @@
+document.write("\
+<h6>Диапазон размещения сводной таблицы</h6>\
+<br />\
+<span class=&quot;KeyWord&quot;>With</span>&nbsp;ThisWorkbook.ActiveSheet.PivotTables(&quot;СводнаяТаблица1&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;MsgBox&nbsp;&quot;PivotTable:&quot;&nbsp;+&nbsp;vbNewLine&nbsp;+&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;RowStart - &quot;&nbsp;+&nbsp;vbTab&nbsp;+&nbsp;<span class=&quot;KeyWord&quot;>CStr(</span>.RowRange.Row<span class=&quot;KeyWord&quot;>)</span>&nbsp;+&nbsp;vbNewLine&nbsp;+&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;RowEnd - &quot;&nbsp;+&nbsp;vbTab&nbsp;+&nbsp;<span class=&quot;KeyWord&quot;>CStr(</span>.RowRange.Row&nbsp;+&nbsp;.RowRange.Rows.Count&nbsp;-&nbsp;1<span class=&quot;KeyWord&quot;>)</span>&nbsp;+&nbsp;vbNewLine&nbsp;+&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ColumnStart - &quot;&nbsp;+&nbsp;vbTab&nbsp;+&nbsp;<span class=&quot;KeyWord&quot;>CStr(</span>.RowRange.Column<span class=&quot;KeyWord&quot;>)</span>&nbsp;+&nbsp;vbNewLine&nbsp;+&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ColumnEnd - &quot;&nbsp;+&nbsp;vbTab&nbsp;+&nbsp;<span class=&quot;KeyWord&quot;>CStr(</span>.RowRange.Column&nbsp;+&nbsp;.RowRange.Columns.Count<span class=&quot;KeyWord&quot;>)</span>&nbsp;+&nbsp;vbNewLine&nbsp;+&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Address  &quot;&nbsp;+&nbsp;vbTab&nbsp;+&nbsp;.TableRange2.Address<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;With</span><br />\
+");

@@ -1,0 +1,19 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'добавить&nbspпримечание&nbspв&nbsp1-ю&nbspячейку&nbspдиапазона</span><br />\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_ДобавитьПримечание()<br />\
+<span class=&quot;KeyWord&quot;>Call&nbsp</span>ДобавитьПримечание(Range(&quot;F2:F5&quot;),&nbsp&quot;Новое&nbspпримечание&quot;)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Sub&nbsp</span>ДобавитьПримечание(<span class=&quot;KeyWord&quot;>ByRef&nbsp</span>oRange&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Range,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Text&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;Примечание:&quot;&nbsp+&nbspvbCrLf)<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oRange&nbsp=&nbspoRange.Cells(1,&nbsp1)<br />\
+oRange.ClearComments<br />\
+oRange.AddComment<br />\
+oRange.Comment.Visible&nbsp=&nbsp<span class=&quot;KeyWord&quot;>True</span><br />\
+oRange.Comment.Text&nbspText:=Text<br />\
+oRange.Comment.Shape.<span class=&quot;KeyWord&quot;>Select&nbsp</span><span class=&quot;KeyWord&quot;>True</span><br />\
+<span class=&quot;KeyWord&quot;>With&nbsp</span>oRange.Application.Selection.Font<br />\
+&nbsp&nbsp&nbsp&nbsp.FontStyle&nbsp=&nbsp&quot;полужирный&quot;<br />\
+&nbsp&nbsp&nbsp&nbsp.ColorIndex&nbsp=&nbsp53<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>With</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+");

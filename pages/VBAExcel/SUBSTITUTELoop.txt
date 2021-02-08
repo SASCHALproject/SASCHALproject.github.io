@@ -1,0 +1,18 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;ПодставитьВЦикле(<span class=&quot;KeyWord&quot;>ByRef</span>&nbsp;Значение&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span>,&nbsp;<span class=&quot;KeyWord&quot;>ByRef</span>&nbsp;Стар_текст&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span>,&nbsp;<span class=&quot;KeyWord&quot;>ByRef</span>&nbsp;Нов_текст&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span><br />\
+<span class=&quot;KeyWord&quot;>On&nbsp;Error&nbsp;GoTo</span>&nbsp;label_err<br />\
+<span class=&quot;KeyWord&quot;>Select&nbsp;Case</span>&nbsp;TypeName(Значение)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;&quot;Range&quot;<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Значение&nbsp;=&nbsp;Значение.Value<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case&nbsp;Else</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Значение&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CStr(</span>Значение<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Select</span><br />\
+<span class=&quot;KeyWord&quot;>Do&nbsp;While</span>&nbsp;InStr(1,&nbsp;Значение,&nbsp;Стар_текст)&nbsp;>&nbsp;0<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;Значение&nbsp;=&nbsp;Replace(Значение,&nbsp;Стар_текст,&nbsp;Нов_текст)<br />\
+<span class=&quot;KeyWord&quot;>Loop</span><br />\
+ПодставитьВЦикле&nbsp;=&nbsp;Значение<br />\
+<span class=&quot;KeyWord&quot;>Exit&nbsp;Function</span><br />\
+label_err:<br />\
+ПодставитьВЦикле&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNA<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

@@ -1,0 +1,5 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;РеверсСтроки(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Строка&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span><br />\
+РеверсСтроки&nbsp;=&nbsp;StrReverse(Строка)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

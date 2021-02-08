@@ -1,0 +1,22 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>ПолучитьРасширениеФайла(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>FileFormat&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span>)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>Val(Application.Version)&nbsp< 12 <span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyComment&quot;>'для&nbspExcel&nbsp97-2003</span><br />\
+&nbsp&nbsp&nbsp&nbspFileExtStr&nbsp=&nbsp&quot;.xls&quot;&nbsp<span class=&quot;KeyComment&quot;>':&nbspFileFormatNum&nbsp=&nbsp-4143</span><br />\
+<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbspдля&nbspExcel&nbsp2007-2013<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Select&nbsp</span><span class=&quot;KeyWord&quot;>Case&nbsp</span>FileFormat<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>51:&nbspFileExtStr&nbsp=&nbsp&quot;.xlsx&quot;&nbsp<span class=&quot;KeyComment&quot;>':&nbspFileFormatNum&nbsp=&nbsp51</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>52:<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyComment&quot;>'If&nbspActiveWorkbook.HasVBProject&nbspThen</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFileExtStr&nbsp=&nbsp&quot;.xlsm&quot;&nbsp<span class=&quot;KeyComment&quot;>':&nbspFileFormatNum&nbsp=&nbsp52</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyComment&quot;>'Else</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyComment&quot;>'&nbsp&nbsp&nbsp&nbspFileExtStr&nbsp=&nbsp&quot;.xlsx&quot;:&nbspFileFormatNum&nbsp=&nbsp51</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyComment&quot;>'End&nbspIf</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>56:&nbspFileExtStr&nbsp=&nbsp&quot;.xls&quot;&nbsp<span class=&quot;KeyComment&quot;>':&nbspFileFormatNum&nbsp=&nbsp56</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span><span class=&quot;KeyWord&quot;>Else</span>:&nbspFileExtStr&nbsp=&nbsp&quot;.xlsb&quot;&nbsp<span class=&quot;KeyComment&quot;>':&nbspFileFormatNum&nbsp=&nbsp50</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Select</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+ПолучитьРасширениеФайла&nbsp=&nbspFileExtStr<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

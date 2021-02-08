@@ -1,0 +1,19 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;СцепитьВЦикле(<span class=&quot;KeyWord&quot;>ByRef</span>&nbsp;Диапазон&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span>,&nbsp;<span class=&quot;KeyWord&quot;>Optional&nbsp;ByVal</span>&nbsp;Разделитель&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span>&nbsp;=&nbsp;&quot;; &quot;)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span><br />\
+<span class=&quot;KeyWord&quot;>On&nbsp;Error&nbsp;GoTo</span>&nbsp;label_err<br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;i&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span>,&nbsp;j&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span>,&nbsp;Результат&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>:&nbsp;Результат&nbsp;=&nbsp;&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>Select&nbsp;Case</span>&nbsp;TypeName(Диапазон)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;&quot;Range&quot;<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Разделитель&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CStr(</span>Разделитель<span class=&quot;KeyWord&quot;>)</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>For</span>&nbsp;i&nbsp;=&nbsp;1&nbsp;<span class=&quot;KeyWord&quot;>To</span>&nbsp;Диапазон.Rows.Count<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>For</span>&nbsp;j&nbsp;=&nbsp;1&nbsp;<span class=&quot;KeyWord&quot;>To</span>&nbsp;Диапазон.Columns.Count<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>If&nbsp;Not</span>&nbsp;IsEmpty(Диапазон.Cells(i,&nbsp;j).Value)&nbsp;<span class=&quot;KeyWord&quot;>Then&nbsp;If</span>&nbsp;Trim$(Диапазон.Cells(i,&nbsp;j).Value)&nbsp;<>&nbsp;&quot;&quot;&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;Результат&nbsp;=&nbsp;Результат&nbsp;+&nbsp;<span class=&quot;KeyWord&quot;>CStr(</span>Диапазон.Cells(i,&nbsp;j).Value<span class=&quot;KeyWord&quot;>)</span>&nbsp;+&nbsp;Разделитель<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Next</span>&nbsp;j<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Next</span>&nbsp;i<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;СцепитьВЦикле&nbsp;=&nbsp;Left$(Результат,&nbsp;Len(Результат)&nbsp;-&nbsp;Len(Разделитель))<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Exit&nbsp;Function</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Select</span><br />\
+label_err:<br />\
+СцепитьВЦикле&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNA<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

@@ -1,0 +1,18 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>ПолучитьНомерФорматаФайла(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>FileExtStr&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>FileFormat&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+<span class=&quot;KeyWord&quot;>Select&nbsp</span><span class=&quot;KeyWord&quot;>Case&nbsp</span>FileExtStr<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>&quot;.xlsx&quot;,&nbsp&quot;xlsx&quot;:&nbspFileFormat&nbsp=&nbsp51<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>&quot;.xlsm&quot;,&nbsp&quot;xlsm&quot;:&nbspFileFormat&nbsp=&nbsp52<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>&quot;.xls&quot;,&nbsp&quot;xls&quot;<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>Val(Application.Version)&nbsp< 12 <span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFileFormat&nbsp=&nbsp56<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFileFormat&nbsp=&nbsp-4143<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>&quot;.xlsb&quot;,&nbsp&quot;xlsb&quot;:&nbspFileFormat&nbsp=&nbsp50<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span><span class=&quot;KeyWord&quot;>Else</span>:&nbspFileFormat&nbsp=&nbsp-4143&nbsp<span class=&quot;KeyComment&quot;>'0</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Select</span><br />\
+ПолучитьНомерФорматаФайла&nbsp=&nbspFileFormat<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

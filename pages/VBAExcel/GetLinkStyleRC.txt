@@ -1,0 +1,8 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>ПолучитьСсылкуВСтилеRC(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Target&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Excel.Range)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>str&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+str = &quot;R&quot; & Target.Cells.Row<br />\
+str = str & &quot;C&quot; & Target.Cells.Column<br />\
+ПолучитьСсылкуВСтилеRC = str<br />\
+<span class=&quot;KeyWord&quot;>End </span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

@@ -1,0 +1,12 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Sub&nbsp</span>GetFreezePanesAddress(<span class=&quot;KeyWord&quot;>ByRef&nbsp</span>oSheet&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Worksheet,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByRef&nbsp</span>Row&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long&nbsp</span>=&nbsp0,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByRef&nbsp</span>Column&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long&nbsp</span>=&nbsp0)<br />\
+<span class=&quot;KeyWord&quot;>With&nbsp</span>oSheet.Application.ActiveWindow<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>.FreezePanes&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>With&nbsp</span>.Panes<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRow&nbsp=&nbsp.Item(.Count).ScrollRow<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn&nbsp=&nbsp.Item(.Count).ScrollColumn<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End </span><span class=&quot;KeyWord&quot;>With</span><br />\
+    <span class=&quot;KeyWord&quot;>End </span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyWord&quot;>End </span><span class=&quot;KeyWord&quot;>With</span><br />\
+<span class=&quot;KeyWord&quot;>End </span><span class=&quot;KeyWord&quot;>Sub</span>\
+");
