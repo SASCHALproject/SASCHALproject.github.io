@@ -1,0 +1,29 @@
+document.write("\
+<em>Сначала необходимо загрузить <a href=&quot;Calendar.html&quot;>Календарь</a></em><br />\
+<br />\
+<pre><br />\
+// Календарь (соответствие периодов)<br />\
+<br />\
+LET varOffsetDate = -1;<br />\
+LET varOffsetSign = IF(varOffsetDate >= 0, 1, -1);<br />\
+<br />\
+// Формирование последовательности дат в диапазоне<br />\
+[TempCalendarOffset]:<br />\
+LOAD<br />\
+	ROWNO() AS [Номер строки],<br />\
+	CEIL(ROWNO() / (FABS($(varOffsetDate)) + 1)) - 1 AS [Номер строки для вычисления даты],<br />\
+	FMOD(ROWNO(), FABS($(varOffsetDate)) + 1) AS [Смещение]<br />\
+AUTOGENERATE ($(varMaxDate) - $(varMinDate) + 1) * (FABS($(varOffsetDate)) + 1);<br />\
+<br />\
+[Календарь Offset]:<br />\
+LOAD<br />\
+	[Номер строки],<br />\
+    [Номер строки для вычисления даты],<br />\
+    DATE($(varMinDate) + [Номер строки для вычисления даты]) AS [%KeyDate],//[TempDate]<br />\
+    [Смещение],<br />\
+    ADDYEARS(DATE($(varMinDate) + [Номер строки для вычисления даты]), [Смещение] * $(varOffsetSign)) AS [%KeyDateOffsetYear] //связка к источнику данных - смещеие в Годах<br />\
+RESIDENT [TempCalendarOffset];<br />\
+<br />\
+DROP TABLE [TempCalendarOffset];<br />\
+</pre><br />\
+");

@@ -1,0 +1,118 @@
+document.write("\
+<pre><br />\
+&lt;qw-sys-info content=&quot;dimensions,measures&quot; style=&quot;flex-wrap: wrap;<br />\
+		   text-align: center;<br />\
+		   align-items: center&quot;&gt;<br />\
+	&lt;div style=&quot;/*background-color: rgba(136, 136, 204, 0.5);*/<br />\
+				height: 100%;<br />\
+				max-width: 100%;<br />\
+				width: 100%;<br />\
+				display: flex;<br />\
+				flex-wrap: {{settings.box_aligment}};&quot;&gt;<br />\
+		&lt;div style=&quot;/*background-color: yellowgreen;*/<br />\
+					max-width: 100%;<br />\
+					width: 100%;<br />\<br />\
+					display: flex;<br />\
+					align-items: {{settings.capt_v_align}};<br />\
+					font-size: 200%;&quot;&gt;<br />\
+			&lt;div style=&quot;/*background-color: rebeccapurple;*/<br />\
+						max-width: 100%;<br />\
+						width: 100%;<br />\
+						text-align: {{settings.capt_h_align}};<br />\
+						font-weight: {{settings.capt_text_bold}};<br />\
+						font-style: {{settings.capt_text_italic}};<br />\
+						font-size: {{settings.capt_text_size}};<br />\
+						padding: 20px;&quot; ng-repeat=&quot;head in data.headers&quot;&gt;<br />\
+				{{head.qFallbackTitle}}<br />\
+			&lt;/div&gt;<br />\
+		&lt;/div&gt;<br />\
+		&lt;div style=&quot;/*background-color: royalblue;*/<br />\
+					max-width: 100%;<br />\
+					width: 100%;<br />\
+					display: flex;<br />\
+					align-items: {{settings.data_v_align}};<br />\
+					font-size: 350%;&quot;&gt;<br />\
+			&lt;div style=&quot;/*background-color: indianred;*/<br />\
+						max-width: 100%;<br />\
+						width: 100%;<br />\
+						text-align: {{settings.data_h_align}};<br />\
+						font-weight: {{settings.data_text_bold}};<br />\
+						font-style: {{settings.data_text_italic}};<br />\
+						font-size: {{settings.data_text_size}};<br />\
+						padding: 20px;&quot; ng-repeat=&quot;head in data.headers&quot;&gt;<br />\
+				{{data.rows[0].measures[$index].qText}}<br />\
+			&lt;/div&gt;<br />\
+		&lt;/div&gt;<br />\
+	&lt;/div&gt;<br />\
+&lt;/qw-sys-info&gt;<br />\
+</pre><br />\
+<br />\
+&nbsp;<br /><br />\
+&nbsp;<br /><br />\
+&nbsp;<br /><br />\
+<div><br />\
+	<div><br />\
+		<h5>Свойства</h5><br />\
+	</div><br />\
+	<div><br />\<br />\
+		<br />\
+		<h6>Блок</h6><br />\
+		<p><br />\<br />\<br />\
+			<small>Dropdown list</small><br /><br />\
+			<big><b>Положение</b></big><br /><br />\
+			<i><b>box_aligment</b></i><br /><br />\
+			<em>wrap</em> - Вертикально<br /><br />\
+			<em>nowrap</em> - Горизонтально<br /><br />\
+		</p><br />\
+		&nbsp;<br /><br />\
+<br />\
+		<h6>Заголовок (capt) / Значение (data)</h6><br />\
+		<p><br />\
+			<small>Dropdown list</small><br /><br />\
+			<big><b>Выравнивание по горизонтали</b></big><br /><br />\
+			<i><b>capt_h_align / data_h_align</b></i><br /><br />\
+			<em>left</em> - Слева<br /><br />\
+			<em>center</em> - По центру<br /><br />\
+			<em>right</em> - Справа<br /><br />\
+		</p><br />\
+		&nbsp;<br /><br />\
+<br />\
+		<p><br />\
+			<small>Dropdown list</small><br /><br />\
+			<big><b>Выравнивание по вертикали</b></big><br /><br />\
+			<i><b>capt_v_align / data_v_align</b></i><br /><br />\
+			<em>flex-start</em> - Сверху<br /><br />\
+			<em>center</em> - По центру<br /><br />\
+			<em>flex-end</em> - Снизу<br /><br />\
+		</p><br />\
+		&nbsp;<br /><br />\
+<br />\
+		<p><br />\
+			<small>Input field</small><br /><br />\
+			<big><b>Размер шрифта</b></big><br /><br />\
+			<i><b>capt_text_size / data_text_size</b></i><br /><br />\
+			<em>100%</em> - по умолчанию<br /><br />\
+		</p><br />\
+		&nbsp;<br /><br />\
+<br />\
+		<p><br />\
+			<small>Dropdown list</small><br /><br />\
+			<big><b>Полужирный</b></big><br /><br />\
+			<i><b>capt_text_bold / data_text_bold</b></i><br /><br />\
+			<em>bold</em> - Да<br /><br />\
+			<em>normal</em> - Нет<br /><br />\
+		</p><br />\
+		&nbsp;<br /><br />\
+<br />\
+		<p><br />\
+			<small>Dropdown list</small><br /><br />\
+			<big><b>Курсив</b></big><br /><br />\
+			<i><b>capt_text_italic / data_text_italic</b></i><br /><br />\
+			<em>italic</em> - Да<br /><br />\
+			<em>normal</em> - Нет<br /><br />\
+		</p><br />\
+		&nbsp;<br /><br />\
+		<br />\
+	</div><br />\
+</div><br />\
+");

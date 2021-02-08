@@ -1,0 +1,9 @@
+document.write("\
+<pre><br />\
+<span class=&quot;QSKeyWord&quot;>LET</span>&nbsp;<span class=&quot;QSVariable&quot;>vДата</span>&nbsp;=&nbsp;<span class=&quot;QSText&quot;>'29.10.2019'</span>;&nbsp;<span class=&quot;QSComment&quot;>//29.10.2019</span><br />\
+<br />\
+<span class=&quot;QSKeyWord&quot;>LET</span>&nbsp;<span class=&quot;QSVariable&quot;>vКвартал</span>&nbsp;=&nbsp;<span class=&quot;QSKeyWord&quot;>DUAL</span>(<span class=&quot;QSText&quot;>'Q'</span>&nbsp;&amp;&nbsp;<span class=&quot;QSKeyWord&quot;>TEXT</span>(<span class=&quot;QSKeyWord&quot;>DIV</span>(<span class=&quot;QSKeyWord&quot;>MONTH</span>(<span class=&quot;QSPoleName&quot;>vДата</span>)&nbsp;-&nbsp;<span class=&quot;QSText&quot;>1</span>,&nbsp;<span class=&quot;QSText&quot;>3</span>)&nbsp;+&nbsp;<span class=&quot;QSText&quot;>1</span>),&nbsp;<span class=&quot;QSKeyWord&quot;>DIV</span>(<span class=&quot;QSKeyWord&quot;>MONTH</span>(<span class=&quot;QSPoleName&quot;>vДата</span>)&nbsp;-&nbsp;<span class=&quot;QSText&quot;>1</span>,&nbsp;<span class=&quot;QSText&quot;>3</span>)&nbsp;+&nbsp;<span class=&quot;QSText&quot;>1</span>);&nbsp;<span class=&quot;QSComment&quot;>//Q4</span><br />\
+<br />\
+<span class=&quot;QSKeyWord&quot;>LET</span>&nbsp;<span class=&quot;QSVariable&quot;>vПериод</span>&nbsp;=&nbsp;<span class=&quot;QSKeyWord&quot;>YEAR</span>(<span class=&quot;QSPoleName&quot;>vДата</span>)&nbsp;&amp;&nbsp;<span class=&quot;QSPoleName&quot;>vКвартал</span>;&nbsp;<span class=&quot;QSComment&quot;>//'2019Q4'</span><br />\
+</pre><br />\
+");

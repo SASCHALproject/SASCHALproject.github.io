@@ -1,0 +1,5 @@
+document.write("\
+<pre><br />\
+<code>&lt;Alt+255&gt;</code><br />\
+</pre><br />\
+");

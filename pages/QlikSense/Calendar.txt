@@ -1,0 +1,40 @@
+document.write("\
+<pre><br />\
+LET varMinDate = NUM(DATE('2018-01-01'));<br />\
+LET varMaxDate = NUM(DAYSTART(YEAREND(NOW())));<br />\
+<br />\
+// Формирование последовательности дат в диапазоне<br />\
+[TempCalendar]:<br />\
+LOAD<br />\
+	DATE($(varMinDate) + ROWNO() - 1) AS TempDate<br />\
+AUTOGENERATE $(varMaxDate) - $(varMinDate) + 1;<br />\
+ <br />\
+// Формирование календаря с иерархией периодов<br />\
+ <br />\
+[Календарь]:<br />\
+LOAD         <br />\
+    [TempDate] AS [%KeyDate],<br />\
+    DATE([TempDate]) AS [Спр | Время | Дата],<br />\
+    DUAL(IF(DAY([TempDate]) < 10, '0','') & DAY([TempDate]), <br />\
+    										DAY([TempDate])) AS [Спр | Время | День],<br />\
+    DUAL(IF(WEEK([TempDate]) < 10, '0', '') & WEEK([TempDate]), <br />\
+    										  WEEK([TempDate])) AS [Спр | Время | Неделя],<br />\
+    DUAL(IF(NUM(MONTH([TempDate])) < 10, '0', '') & NUM(MONTH([TempDate])), <br />\
+    												NUM(MONTH([TempDate]))) AS [Спр | Время | Месяц],<br />\
+    DUAL('Q' & CEIL(NUM(MONTH(QUARTERSTART([TempDate]))) / 3), <br />\
+    		   CEIL(NUM(MONTH(QUARTERSTART([TempDate]))) / 3)) AS [Спр | Время | Квартал],<br />\
+    DUAL('Y' & YEAR([TempDate]), <br />\
+    		   YEAR([TempDate])) AS [Спр | Время | Год],<br />\
+    DUAL(WEEKYEAR([TempDate]) & '-' & IF(WEEK([TempDate]) < 10, '0', '') & WEEK([TempDate]), <br />\
+													WEEKYEAR([TempDate]) & WEEK([TempDate])) AS [Спр | Время | ГодНеделя],<br />\
+    YEAR([TempDate]) & IF(NUM(MONTH([TempDate])) < 10, '0', '') & NUM(MONTH([TempDate])) AS [Спр | Время | ГодМесяц],<br />\
+    DUAL(YEAR([TempDate]) & '-' & (CEIL(NUM(MONTH(QUARTERSTART([TempDate]))) / 3)), <br />\
+			   YEAR([TempDate]) & (CEIL(NUM(MONTH(QUARTERSTART([TempDate]))) / 3))) AS [Спр | Время | ГодКвартал],<br />\
+    WEEKDAY([TempDate]) AS [Спр | Время | ДеньНедели]<br />\
+RESIDENT [TempCalendar];<br />\
+<br />\
+DROP TABLE [TempCalendar];<br />\
+</pre><br />\
+<br />\
+<em>Для анализа периодов можно использовать <a href=&quot;CalendarOffsetYear.html&quot;>Календарь со смещением года</a></em><br />\
+");

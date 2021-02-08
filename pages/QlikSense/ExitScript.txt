@@ -1,0 +1,5 @@
+document.write("\
+<pre><br />\
+<span class=&quot;QSKeyWord&quot;>EXIT SCRIPT</span>;<br />\
+</pre><br />\
+");

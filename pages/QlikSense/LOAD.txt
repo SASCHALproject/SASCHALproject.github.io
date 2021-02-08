@@ -1,0 +1,36 @@
+document.write("\
+<h4>Функция LOAD</h4><br />\
+<br />\
+<h3>Загрузка из Excel</h3><br />\
+<div class=&quot;blockCode&quot;><br />\
+<pre><br />\
+<span class=&quot;QSKeyName&quot;>[Продажи]:</span><br />\
+<span class=&quot;QSKeyWord&quot;>LOAD</span><br />\
+    <span class=&quot;QSPoleName&quot;>[Неделя]</span>,<br />\
+    <span class=&quot;QSPoleName&quot;>[Магазин]</span>,<br />\
+    <span class=&quot;QSPoleName&quot;>[Сумма, руб]</span><br />\
+ <span class=&quot;QSKeyWord&quot;>FROM</span> [lib://Продажи/ИмяФайла.xlsx]<br />\
+ (<span class=&quot;QSKeyWord&quot;>ooxml</span>, <span class=&quot;QSKeyWord&quot;>embedded labels</span>, <span class=&quot;QSKeyWord&quot;>table is</span> <span class=&quot;QSKeyName&quot;>[Лист1]</span>)<br />\
+ ;<br />\
+</pre><br />\
+</div><br />\
+<br />\
+<h3>Загрузка из БД</h3><br />\
+<div class=&quot;blockCode&quot;><br />\
+<pre><br />\
+<span class=&quot;QSKeyWord&quot;>LIB CONNECT TO</span> <span class=&quot;QSText&quot;>'db.accdb'</span>;<br />\
+<br />\
+<span class=&quot;QSKeyName&quot;>[ИмяТаблицыQS]:</span><br />\
+<span class=&quot;QSKeyWord&quot;>LOAD</span><br />\
+    <span class=&quot;QSPoleName&quot;>[Неделя]</span>,<br />\
+    <span class=&quot;QSPoleName&quot;>[Магазин]</span>,<br />\
+    <span class=&quot;QSPoleName&quot;>[Сумма, руб]</span><br />\
+ ;<br />\
+<span class=&quot;QSKeyWord&quot;>SQL</span> SELECT<br />\
+          `Неделя`,<br />\
+          `Магазин`,<br />\
+          `Сумма, руб`<br />\
+        FROM `ИмяТаблицыБД`<br />\
+        ;<br />\
+</pre><br />\
+");

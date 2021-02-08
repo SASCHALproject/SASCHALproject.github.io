@@ -1,0 +1,8 @@
+document.write("\
+<pre><br />\
+<span class=&quot;QSKeyWord&quot;>SET</span> <span class=&quot;QSVariable&quot;>ErrorMode</span> = <span class=&quot;QSText&quot;>0</span>; <span class=&quot;QSComment&quot;>//пропуск ошибок выполнения программы</span><br />\
+<span class=&quot;QSKeyWord&quot;>SET</span> <span class=&quot;QSVariable&quot;>ErrorMode</span> = <span class=&quot;QSText&quot;>1</span>; <span class=&quot;QSComment&quot;>//по умолчанию; остановка выполнения программы при возникновения ошибки</span><br />\
+</pre><br />\
+<br />\
+<em>Справочная информация: <a href=&quot;https://help.qlik.com/ru-RU/sense/September2018/Subsystems/Hub/Content/Sense_Hub/Scripting/ErrorVariables/ErrorMode.htm&quot; target=&quot;_blank&quot;>help.qlik.com</a></em><br />\
+");

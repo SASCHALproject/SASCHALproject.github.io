@@ -1,0 +1,8 @@
+document.write("\
+<pre><br />\
+<span class=&quot;QSKeyWord&quot;>SET</span> <span class=&quot;QSVariable&quot;>MonthNames</span> = <span class=&quot;QSText&quot;>'Янв;Фев;Мар;Апр;Май;Июн;Июл;Авг;Сен;Окт;Ноя;Дек'</span>;<br />\
+<span class=&quot;QSKeyWord&quot;>LET</span> <span class=&quot;QSVariable&quot;>vМесяцИмя</span> = <span class=&quot;QSText&quot;>'Апр'</span>;<br />\
+<span class=&quot;QSKeyWord&quot;>LET</span> <span class=&quot;QSVariable&quot;>vМесяцНомер</span> = <span class=&quot;QSKeyWord&quot;>NUM</span>(<span class=&quot;QSKeyWord&quot;>MONTH</span>(<span class=&quot;QSKeyWord&quot;>DATE#</span>(<span class=&quot;QSText&quot;>'2019-$(vМесяцИмя)-1'</span>, <span class=&quot;QSText&quot;>'YYYY-MMM-DD'</span>)));<br />\
+<span class=&quot;QSKeyWord&quot;>TRACE</span> $(vМесяцНомер);<br />\
+</pre><br />\
+");

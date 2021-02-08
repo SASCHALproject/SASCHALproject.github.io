@@ -1,0 +1,44 @@
+document.write("\
+<h4>Функция For</h4><br />\
+<br />\
+<h3>For...Next</h3><br />\
+<div class=&quot;blockCode&quot;><br />\
+<pre><br />\
+<span class=&quot;QSKeyName&quot;>[Данные]:</span><br />\
+<span class=&quot;QSKeyWord&quot;>LOAD</span><br />\
+      <span class=&quot;QSPoleName&quot;>[Поле1]</span>,<br />\
+      <span class=&quot;QSPoleName&quot;>[Поле2]</span><br />\
+ ;<br />\
+<br />\
+<span class=&quot;QSKeyWord&quot;>SET</span> <span class=&quot;QSVariable&quot;>ErrorMode</span> = <span class=&quot;QSText&quot;>0</span>; <span class=&quot;QSComment&quot;>//пропуск ошибок выполнения программы</span><br />\
+<br />\
+<span class=&quot;QSKeyWord&quot;>FOR EACH</span> <span class=&quot;QSKeyName&quot;>Файл</span> <span class=&quot;QSKeyWord&quot;>IN</span> <span class=&quot;QSText&quot;>'Файл 1'</span>, <span class=&quot;QSText&quot;>'Файл 2'</span>, <span class=&quot;QSText&quot;>'Файл 3'</span>, <span class=&quot;QSText&quot;>'Файл 4'</span> <span class=&quot;QSComment&quot;>//цикл по именам файлов</span><br />\
+    <span class=&quot;QSKeyWord&quot;>FOR</span> <span class=&quot;QSVariable&quot;>i</span> = <span class=&quot;QSText&quot;>1</span> <span class=&quot;QSKeyWord&quot;>TO</span> <span class=&quot;QSText&quot;>20</span> <span class=&quot;QSComment&quot;>//цикл по именам листов</span><br />\
+        <span class=&quot;QSKeyName&quot;>[Данные]:</span><br />\
+        <span class=&quot;QSKeyWord&quot;>CONCATENATE<br />\
+        LOAD</span><br />\
+            <span class=&quot;QSText&quot;>'$(Файл) [Лист$(i)]'</span> <span class=&quot;QSKeyWord&quot;>AS</span> <span class=&quot;QSPoleName&quot;>[Файл]</span>,<br />\
+            <span class=&quot;QSPoleName&quot;>[Поле1]</span>,<br />\
+            <span class=&quot;QSPoleName&quot;>[Поле2]</span><br />\
+         <span class=&quot;QSKeyWord&quot;>FROM</span> [lib://Каталог с файлами/$(Файл).xlsx]<br />\
+        (<span class=&quot;QSKeyWord&quot;>ooxml</span>, <span class=&quot;QSKeyWord&quot;>embedded labels</span>, <span class=&quot;QSKeyWord&quot;>table is</span> <span class=&quot;QSKeyName&quot;>[Лист$(i)]</span>);<br />\
+    <span class=&quot;QSKeyWord&quot;>NEXT</span> <span class=&quot;QSVariable&quot;>i</span><br />\
+<span class=&quot;QSKeyWord&quot;>NEXT</span><br />\
+<br />\
+<span class=&quot;QSKeyWord&quot;>SET</span> <span class=&quot;QSVariable&quot;>ErrorMode</span> = <span class=&quot;QSText&quot;>1</span>; <span class=&quot;QSComment&quot;>//по умолчанию; остановка выполнения программы при возникновения ошибки</span><br />\
+</pre><br />\
+</div><br />\
+<br />\
+<h3>For...Each</h3><br />\
+<div class=&quot;blockCode&quot;><br />\
+<pre><br />\
+<span class=&quot;QSKeyWord&quot;>FOR EACH</span> <span class=&quot;QSVariable&quot;>a</span> <span class=&quot;QSKeyWord&quot;>IN</span> <span class=&quot;QSText&quot;>1</span>,<span class=&quot;QSText&quot;>2</span>,<span class=&quot;QSText&quot;>3</span>,<span class=&quot;QSText&quot;>'Десять'</span><br />\
+    <span class=&quot;QSKeyName&quot;>[Цикл_ForEach]:</span><br />\
+    <span class=&quot;QSKeyWord&quot;>LOAD</span><br />\
+    	*,<br />\
+        <span class=&quot;QSText&quot;>'$(a)'</span> & <span class=&quot;QSText&quot;>'-'</span> & <span class=&quot;QSKeyWord&quot;>RECNO</span>() <span class=&quot;QSKeyWord&quot;>AS</span> <span class=&quot;QSPoleName&quot;>NEWFIELD</span><br />\
+	 <span class=&quot;QSKeyWord&quot;>FROM</span> [lib://Документы/Файл$(a).xlsx]<br />\
+     (<span class=&quot;QSKeyWord&quot;>ooxml</span>, <span class=&quot;QSKeyWord&quot;>embedded labels</span>, <span class=&quot;QSKeyWord&quot;>table is</span> <span class=&quot;QSKeyName&quot;>[Лист1]</span>);<br />\
+<span class=&quot;QSKeyWord&quot;>NEXT</span><br />\
+</pre><br />\
+");

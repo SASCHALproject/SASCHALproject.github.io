@@ -1,0 +1,7 @@
+document.write("\
+<pre><br />\
+<span class=&quot;QSKeyWord&quot;>IF</span>&nbsp;<span class=&quot;QSKeyWord&quot;>LEN</span>(<span class=&quot;QSKeyWord&quot;>FILESIZE</span>(<span class=&quot;QSText&quot;>'$(vПутьКФайлу)$(vИмяФайла).qvd'</span>))&nbsp;<>&nbsp;<span class=&quot;QSText&quot;>0</span>&nbsp;<span class=&quot;QSKeyWord&quot;>THEN</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;QSKeyComment&quot;>//...</span><br />\
+<span class=&quot;QSKeyWord&quot;>END&nbsp;IF</span><br />\
+</pre><br />\
+");
