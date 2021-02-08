@@ -1,0 +1,40 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'создать&nbsp(сохранить)&nbspзапрос&nbspв&nbspтекущей&nbspБД&nbsp(CurrentDb)</span><br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>СоздатьЗапрос(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>ИмяЗапроса&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>,&nbsp<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>ТекстЗапроса&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Заменить&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Boolean&nbsp</span>=&nbsp<span class=&quot;KeyWord&quot;>True</span>,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Действие&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long&nbsp</span>=&nbsp-1)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Boolean</span><br />\
+СоздатьЗапрос&nbsp=&nbsp<span class=&quot;KeyWord&quot;>False</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>StrSql&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>Db&nbsp=&nbspCurrentDb<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>qdf&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>QueryDef<br />\
+<span class=&quot;KeyComment&quot;>'опрделяем&nbspсуществует&nbspзапрос&nbspили&nbspнет,&nbspесли&nbspда,&nbspто&nbspудаляем&nbspего</span><br />\
+Db.QueryDefs.Refresh<br />\
+<span class=&quot;KeyWord&quot;>For&nbsp</span><span class=&quot;KeyWord&quot;>Each&nbsp</span>qdf&nbsp<span class=&quot;KeyWord&quot;>In&nbsp</span>Db.QueryDefs<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>UCase$(qdf.Name)&nbsp=&nbspUCase$(ИмяЗапроса)&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>Заменить&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDb.QueryDefs.Delete&nbspqdf.Name<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>For</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyWord&quot;>Next&nbsp</span>qdf<br />\
+<span class=&quot;KeyComment&quot;>'строка&nbspзапроса</span><br />\
+StrSql&nbsp=&nbspТекстЗапроса<br />\
+<span class=&quot;KeyComment&quot;>'создаем&nbspQueryDef</span><br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>qdf&nbsp=&nbspDb.CreateQueryDef(ИмяЗапроса,&nbspStrSql)<br />\
+DoEvents<br />\
+DoCmd.SetWarnings&nbsp<span class=&quot;KeyWord&quot;>False</span><br />\
+<span class=&quot;KeyWord&quot;>Select&nbsp</span><span class=&quot;KeyWord&quot;>Case&nbsp</span>Действие<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>0&nbsp<span class=&quot;KeyComment&quot;>'Выполнить</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDb.Execute&nbspИмяЗапроса<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>1&nbsp<span class=&quot;KeyComment&quot;>'Открыть&nbsp(выполнить&nbspзапрос)</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDoCmd.OpenQuery&nbspИмяЗапроса,&nbspacViewNormal<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>2&nbsp<span class=&quot;KeyComment&quot;>'Открыть&nbspзапрос&nbspв&nbspрежиме&nbsp&quot;Конструктор&quot;</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDoCmd.OpenQuery&nbspИмяЗапроса,&nbspacViewDesign<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span><span class=&quot;KeyWord&quot;>Else&nbsp</span><span class=&quot;KeyComment&quot;>'-1</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyComment&quot;>'ничего&nbspне&nbspделать</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Select</span><br />\
+DoCmd.SetWarnings&nbsp<span class=&quot;KeyWord&quot;>True</span><br />\
+qdf.Close<br />\
+СоздатьЗапрос&nbsp=&nbsp<span class=&quot;KeyWord&quot;>True</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

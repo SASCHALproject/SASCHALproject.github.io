@@ -1,0 +1,24 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>\
+'Задача:<br />\
+'В&nbspБД&nbspесть&nbspтаблица&nbsp«Константы»&nbspс&nbspполями:\
+<ul>\
+    <li>'Наименование&nbsp–&nbspимя&nbspконстанты;&nbspтип&nbspданных&nbsp–&nbspКороткий&nbspтекст</li>\
+    <li>'Значение&nbsp–&nbspзначение&nbspконстанты;&nbspтип&nbspданных&nbsp–&nbspКороткий&nbspтекст</li>\
+    <li>'Использовать&nbsp–&nbspопределяет,&nbspявляется&nbspли&nbspконстанта&nbspактивной;&nbspтип&nbspданных&nbsp–&nbspЛогический</li>\
+</ul>\
+Необходимо&nbspпо&nbspимени&nbspконстанты&nbspполучить&nbspеё&nbspзначение.<br />\
+<br />\
+</span>\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_ПолучитьКонстанту()<br />\
+MsgBox&nbspПолучитьКонстанту(&quot;КаталогСохраненияОтчетов&quot;)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>ПолучитьКонстанту(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Value&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>IsUse&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Boolean&nbsp</span>=&nbsp<span class=&quot;KeyWord&quot;>True</span>)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Const&nbsp</span>constPoleName&nbsp=&nbsp&quot;Значение&quot;<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>sUse&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>:&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>IsUse&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>sUse&nbsp=&nbsp&quot;True&quot;&nbsp<span class=&quot;KeyWord&quot;>Else&nbsp</span>sUse&nbsp=&nbsp&quot;False&quot;<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>rs&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Object</span><br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>rs&nbsp=&nbspCurrentDb.OpenRecordset(&quot;SELECT&nbsp&quot;&nbsp+&nbspconstPoleName&nbsp+&nbsp&quot;&nbspFROM&nbspКонстанты&nbspWHERE&nbsp(((Наименование)=&quot;&nbsp+&nbspChr(34)&nbsp+&nbspValue&nbsp+&nbspChr(34)&nbsp+&nbsp&quot;)&nbspAND&nbsp((Использовать)=&quot;&nbsp+&nbspsUse&nbsp+&nbsp&quot;));&quot;)<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>rs.EOF&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>ПолучитьКонстанту&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Else&nbsp</span>ПолучитьКонстанту&nbsp=&nbsprs.Fields(constPoleName).Value<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

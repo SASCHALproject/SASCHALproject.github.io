@@ -1,0 +1,79 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_ExportQuery()<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>bool&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Boolean</span>:&nbspbool&nbsp=&nbspExportQuery(&quot;SELECT&nbsp2.3&nbspAS&nbspЧислоСЗапятой№№,&nbsp0.2&nbspAS&nbsp[Процент%%],&nbsp1200.5&nbspAS&nbsp[Денежный$$]&nbspFROM&nbsp[~Offices];&quot;,&nbsp&quot;C:\Documents&nbspand&nbspSettings\<user>\Рабочий&nbspстол\&quot;)<br />\
+MsgBox&nbspIIf(bool,&nbsp&quot;Готово!&nbsp:)&quot;,&nbsp&quot;Отменено!&quot;),&nbspIIf(bool,&nbsp64,&nbsp16),&nbsp&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>ExportQuery(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>QueryName&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>sFolderName&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;&quot;)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Boolean</span><br />\
+ExportQuery&nbsp=&nbsp<span class=&quot;KeyWord&quot;>False</span><br />\
+<span class=&quot;KeyWord&quot;>On&nbsp</span><span class=&quot;KeyWord&quot;>Error&nbspGoTo</span>&nbsperr<br />\
+<span class=&quot;KeyWord&quot;>Const&nbsp</span>constStartRow&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long&nbsp</span>=&nbsp2<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>oExcel&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Object</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>oBook&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Object</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>oSheet&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Object</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>oRange&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Object</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>sFileName&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>StrSql&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>rs&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>DAO.Recordset<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>UCase$(Left$(QueryName,&nbsp6))&nbsp=&nbsp&quot;SELECT&quot;&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbspStrSql&nbsp=&nbspQueryName<br />\
+&nbsp&nbsp&nbsp&nbspsFileName&nbsp=&nbsp&quot;Выгрузка&quot;<br />\
+<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbspStrSql&nbsp=&nbsp&quot;SELECT&nbsp*&nbspFROM&nbsp[&quot;&nbsp+&nbspQueryName&nbsp+&nbsp&quot;]&quot;<br />\
+&nbsp&nbsp&nbsp&nbspsFileName&nbsp=&nbspQueryName<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>sFolderName&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbspsFolderName&nbsp=&nbspBrowseForFolder(0,&nbsp&quot;&quot;,&nbsp&quot;&quot;)<br />\
+<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbspsFolderName&nbsp=&nbspIIf(Right$(sFolderName,&nbsp1)&nbsp<>&nbsp&quot;\&quot;,&nbspsFolderName&nbsp+&nbsp&quot;\&quot;,&nbspsFolderName)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>sFolderName&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span><span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+sFileName&nbsp=&nbspsFolderName&nbsp&&nbspsFileName&nbsp&&nbsp&quot;.xlsx&quot;<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>rs&nbsp=&nbspCurrentDb.OpenRecordset(StrSql,&nbspdbOpenDynaset)<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oExcel&nbsp=&nbspCreateObject(&quot;Excel.Application&quot;)<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oBook&nbsp=&nbspoExcel.Workbooks.Add<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oSheet&nbsp=&nbspoBook.Worksheets.Add<br />\
+oSheet.Name&nbsp=&nbsp&quot;Выгрузка&quot;<br />\
+oSheet.Range(&quot;A&quot;&nbsp+&nbsp<span class=&quot;KeyWord&quot;>CStr</span><span class=&quot;KeyWord&quot;>(</span>constStartRow<span class=&quot;KeyWord&quot;>)</span>CopyFromRecordset&nbsprs<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>lRowCount&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span>:&nbsplRowCount&nbsp=&nbspoSheet.Range(&quot;A1&quot;).SpecialCells(xlLastCell).Row<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>lColumnCount&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span>:&nbsplColumnCount&nbsp=&nbspoSheet.Range(&quot;A1&quot;).SpecialCells(xlLastCell).Column<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>a&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>b&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>i&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+<span class=&quot;KeyWord&quot;>For&nbsp</span>i&nbsp=&nbsp0&nbsp<span class=&quot;KeyWord&quot;>To&nbsp</span>rs.Fields.Count&nbsp-&nbsp1<br />\
+&nbsp&nbsp&nbsp&nbspa&nbsp=&nbsprs.Fields(i).Name<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>Len(a)&nbsp>=&nbsp2&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspb&nbsp=&nbspRight$(a,&nbsp2)<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>oRange&nbsp=&nbspoSheet.Range(oSheet.Cells(constStartRow,&nbspi&nbsp+&nbsp1),&nbspoSheet.Cells(lRowCount,&nbspi&nbsp+&nbsp1))<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Select&nbsp</span><span class=&quot;KeyWord&quot;>Case&nbsp</span>b<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>&quot;№№&quot;&nbsp<span class=&quot;KeyComment&quot;>'числовой</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspoRange.NumberFormat&nbsp=&nbsp&quot;0.00&quot;<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>&quot;%%&quot;&nbsp<span class=&quot;KeyComment&quot;>'процентный</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspoRange.NumberFormat&nbsp=&nbsp&quot;0.00%&quot;<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>&quot;$$&quot;&nbsp<span class=&quot;KeyComment&quot;>'денежный</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspoRange.NumberFormat&nbsp=&nbsp&quot;#,##0.00$&quot;<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Select</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspa&nbsp=&nbspLeft$(a,&nbspLen(a)&nbsp-&nbspLen(b))<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+&nbsp&nbsp&nbsp&nbspoSheet.Cells(constStartRow&nbsp-&nbsp1,&nbspi&nbsp+&nbsp1).Value&nbsp=&nbspa<br />\
+<span class=&quot;KeyWord&quot;>Next&nbsp</span>i<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oRange&nbsp=&nbspoSheet.Range(oSheet.Cells(1,&nbsp1),&nbspoSheet.Cells(lRowCount,&nbsplColumnCount))<br />\
+<span class=&quot;KeyWord&quot;>Call&nbsp</span>УстановитьСеткуТаблицы(oRange)<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oRange&nbsp=&nbspoSheet.Range(oSheet.Cells(1,&nbsp1),&nbspoSheet.Cells(1,&nbsplColumnCount))<br />\
+<span class=&quot;KeyWord&quot;>Call&nbsp</span>ФорматированиеЗаголовкаТаблицы(oRange)<br />\
+oSheet.Columns.EntireColumn.AutoFit<br />\
+oExcel.DisplayAlerts&nbsp=&nbsp<span class=&quot;KeyWord&quot;>False</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>obj&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Object</span><br />\
+<span class=&quot;KeyWord&quot;>For&nbsp</span><span class=&quot;KeyWord&quot;>Each&nbsp</span>obj&nbsp<span class=&quot;KeyWord&quot;>In&nbsp</span>oBook.Worksheets<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>obj.Name&nbsp<>&nbspoSheet.Name&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>obj.Delete<br />\
+<span class=&quot;KeyWord&quot;>Next</span><br />\
+oSheet.SaveAs&nbspsFileName<br />\
+oExcel.DisplayAlerts&nbsp=&nbsp<span class=&quot;KeyWord&quot;>True</span><br />\
+oExcel.Visible&nbsp=&nbsp<span class=&quot;KeyWord&quot;>True</span><br />\
+ExportQuery&nbsp=&nbsp<span class=&quot;KeyWord&quot;>True</span><br />\
+<span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+err:<br />\
+MsgBox&nbsp<span class=&quot;KeyWord&quot;>CStr</span><span class=&quot;KeyWord&quot;>(</span>err.Number<span class=&quot;KeyWord&quot;>)</span>+&nbsp&quot;&nbsp&quot;&nbsp+&nbsperr.Description,&nbsp16,&nbsp&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span><span class=&quot;KeyWord&quot;>Not&nbsp</span>oExcel&nbspIs&nbsp<span class=&quot;KeyWord&quot;>Nothing&nbsp</span><span class=&quot;KeyWord&quot;>Then&nbsp</span>oExcel.Visible&nbsp=&nbsp<span class=&quot;KeyWord&quot;>True</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

@@ -1,0 +1,15 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'отображение&nbspв&nbspStatusBar&nbspAccess&nbspданных&nbspо&nbspходе&nbspработы&nbspпроцедуры&nbsp(функции)</span><br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Sub&nbsp</span>ИндикацтияЗагрузки(<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Status&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Variant&nbsp</span>=&nbsp-1,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Value&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long&nbsp</span>=&nbsp0,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Caption&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;Индикацтия&nbspзагрузки&quot;)<br />\
+<span class=&quot;KeyWord&quot;>On&nbsp</span><span class=&quot;KeyWord&quot;>Error&nbsp</span><span class=&quot;KeyWord&quot;>Resume&nbsp</span><span class=&quot;KeyWord&quot;>Next</span><br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span><span class=&quot;KeyWord&quot;>Not&nbsp</span>IsNumeric(Status)&nbsp<span class=&quot;KeyWord&quot;>And&nbsp</span><span class=&quot;KeyWord&quot;>Not&nbsp</span>IsDate(Status)&nbsp<span class=&quot;KeyWord&quot;>And&nbsp</span><span class=&quot;KeyWord&quot;>Not&nbsp</span>IsNull(Status)&nbsp<span class=&quot;KeyWord&quot;>And&nbsp</span><span class=&quot;KeyWord&quot;>Not&nbsp</span>IsArray(Status)&nbsp<span class=&quot;KeyWord&quot;>And&nbsp</span><span class=&quot;KeyWord&quot;>Not&nbsp</span>IsObject(Status)&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>Status&nbsp=&nbspUCase$(Status)<br />\
+<span class=&quot;KeyWord&quot;>Select&nbsp</span><span class=&quot;KeyWord&quot;>Case&nbsp</span>Status<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>0,&nbsp&quot;START&quot;<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspApplication.SysCmd&nbspacSysCmdInitMeter,&nbspCaption,&nbspValue&nbsp<span class=&quot;KeyComment&quot;>'инициализация&nbspиндикации</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>1,&nbsp&quot;RUN&quot;<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspApplication.SysCmd&nbspacSysCmdUpdateMeter,&nbspValue&nbsp<span class=&quot;KeyComment&quot;>'отображение&nbspпроцесса</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span><span class=&quot;KeyWord&quot;>Else&nbsp</span><span class=&quot;KeyComment&quot;>'-1,&nbsp&quot;STOP&quot;</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspApplication.SysCmd&nbspacSysCmdClearStatus&nbsp<span class=&quot;KeyComment&quot;>'скрываем&nbspиндикацию</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Select</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+");

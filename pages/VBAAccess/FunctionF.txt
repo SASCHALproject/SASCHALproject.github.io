@@ -1,0 +1,18 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'функция&nbspразделяет&nbspзначение&nbspв&nbspячейке&nbspна&nbspстолбцы</span><br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>f(fld,&nbspn,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>sSplit&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;,&quot;)<br />\
+Static&nbspd,&nbspp<br />\
+<span class=&quot;KeyWord&quot;>On&nbsp</span><span class=&quot;KeyWord&quot;>Error&nbspGoTo</span>&nbsperrend<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>d&nbsp<>&nbspfld&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbspp&nbsp=&nbspSplit(fld,&nbspsSplit)<br />\
+&nbsp&nbsp&nbsp&nbspd&nbsp=&nbspfld<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+f&nbsp=&nbspp(n)<br />\
+<span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+errend:<br />\
+f&nbsp=&nbsp&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+<br />\
+<span class=&quot;KeyComment&quot;>'вызов&nbspфункции&nbspв&nbspSQL-запросе</span><br />\
+…,&nbspf([График&nbspпосещений&nbspменеджером],0)&nbsp<span class=&quot;KeyWord&quot;>AS&nbsp</span>pole1,&nbsp…<br />\
+");

@@ -1,0 +1,27 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_ПолучитьТекстЗапроса&nbsp()<br />\
+MsgBox&nbspПолучитьТекстЗапроса(&quot;Запрос1&quot;)&nbsp<span class=&quot;KeyComment&quot;>'запрос&nbspв&nbspтекущей&nbspБД</span><br />\
+MsgBox&nbspПолучитьТекстЗапроса(&quot;Запрос2&quot;,&nbsp&quot;С:\db2.accdb&quot;)&nbsp<span class=&quot;KeyComment&quot;>'запрос&nbspв&nbspдругой&nbspБД</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>ПолучитьТекстЗапроса(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>ИмяЗапроса&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>DBPath&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;&quot;)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+ПолучитьТекстЗапроса&nbsp=&nbsp&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>db&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Database<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>DBPath&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>db&nbsp=&nbspCurrentDb<br />\
+<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>Dir(DBPath)&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span><span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Dim&nbsp</span>objWorkspace&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>DAO.Workspace<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>objWorkspace&nbsp=&nbspDBEngine.Workspaces(0)<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>db&nbsp=&nbspobjWorkspace.OpenDatabase(DBPath)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>qdf&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>QueryDef<br />\
+db.QueryDefs.Refresh<br />\
+<span class=&quot;KeyWord&quot;>For&nbsp</span><span class=&quot;KeyWord&quot;>Each&nbsp</span>qdf&nbsp<span class=&quot;KeyWord&quot;>In&nbsp</span>db.QueryDefs<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>UCase$(qdf.Name)&nbsp=&nbspUCase$(ИмяЗапроса)&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspПолучитьТекстЗапроса&nbsp=&nbspTrim$(Replace(Replace(qdf.SQL,&nbspvbCr,&nbsp&quot;&nbsp&quot;),&nbspvbLf,&nbsp&quot;&nbsp&quot;))<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyWord&quot;>Next&nbsp</span>qdf<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

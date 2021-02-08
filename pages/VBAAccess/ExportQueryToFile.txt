@@ -1,0 +1,23 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'так&nbspже&nbspможно&nbspвместо&nbspИмяЗапроса&nbspввести&nbspSQL-запрос&nbsp(тогда&nbspне&nbspнужна&nbspпроверка&nbspна&nbspсуществование&nbspзапроса)</span><br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Sub&nbsp</span>ЭкспортЗапросаВФайл(<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>ИмяЗапроса&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;&quot;)<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>ИмяЗапроса&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>ИмяЗапроса&nbsp=&nbspInputBox(&quot;Введите&nbspимя&nbspзапроса&quot;,&nbsp&quot;&quot;,&nbsp&quot;&quot;)<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>Trim$(ИмяЗапроса)&nbsp=&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span><span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>IsNull(DLookup(&quot;Name&quot;,&nbsp&quot;MSysObjects&quot;,&nbsp&quot;Type&nbsp=&nbsp5&nbspAnd&nbspName&nbsp=&nbsp&quot;&quot;&quot;&nbsp&&nbspИмяЗапроса&nbsp&&nbsp&quot;&quot;&quot;&quot;))&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>MsgBox&nbsp&quot;Запрос&nbsp'&quot;&nbsp+&nbspИмяЗапроса&nbsp+&nbsp&quot;'&nbspне&nbspнайден!&quot;,&nbsp16,&nbsp&quot;&quot;:&nbsp<span class=&quot;KeyWord&quot;>Exit&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>rs&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Recordset<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>rs&nbsp=&nbspCurrentDb.OpenRecordset(ИмяЗапроса)<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>oExcel&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>New&nbsp</span>Excel.Application<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>oBook&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Excel.Workbook:&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>oBook&nbsp=&nbspoExcel.Workbooks.Add<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>oSheet&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Excel.Worksheet:&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>oSheet&nbsp=&nbspoBook.Worksheets(1):&nbspoSheet.Name&nbsp=&nbsp&quot;Выгрузка&quot;<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>i&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+<span class=&quot;KeyWord&quot;>For&nbsp</span>i&nbsp=&nbsp0&nbsp<span class=&quot;KeyWord&quot;>To&nbsp</span>rs.Fields.Count&nbsp-&nbsp1&nbsp<span class=&quot;KeyComment&quot;>'заполнить&nbspстроку&nbspзаголовка&nbspв&nbspфайле</span><br />\
+&nbsp&nbsp&nbsp&nbspoSheet.Cells(НомерСтрокиЗаголовка,&nbspi&nbsp+&nbspНомерПервогоСтолбцаЗаголовка).Value&nbsp=&nbsprs.Fields(i).Name<br />\
+<span class=&quot;KeyWord&quot;>Next&nbsp</span>i<br />\
+oSheet.Range(&quot;A2&quot;).CopyFromRecordset&nbsprs<br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oSheet&nbsp=&nbsp<span class=&quot;KeyWord&quot;>Nothing</span><br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oBook&nbsp=&nbsp<span class=&quot;KeyWord&quot;>Nothing</span><br />\
+oExcel.Visible&nbsp=&nbsp<span class=&quot;KeyWord&quot;>True</span><br />\
+<span class=&quot;KeyWord&quot;>Set&nbsp</span>oExcel&nbsp=&nbsp<span class=&quot;KeyWord&quot;>Nothing</span><br />\
+MsgBox&nbsp&quot;Готово!&nbsp:)&quot;,&nbsp64,&nbsp&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+");
