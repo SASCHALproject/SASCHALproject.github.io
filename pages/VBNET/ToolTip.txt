@@ -1,0 +1,19 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Private&nbsp;Sub</span>&nbsp;НоваяПодсказка(ОбъектДляПодсказки&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Object</span>,&nbsp;ТекстПодсказки&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>,&nbsp;<span class=&quot;KeyWord&quot;>Optional&nbsp;ByVal</span>&nbsp;ЗаголовокПодсказки&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>&nbsp;=&nbsp;&quot;Подсказка&quot;,&nbsp;<span class=&quot;KeyWord&quot;>Optional&nbsp;ByVal</span>&nbsp;ВремяПоказаПодсказки&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span>&nbsp;=&nbsp;10000,&nbsp;<span class=&quot;KeyWord&quot;>Optional&nbsp;ByRef</span>&nbsp;СмещениеОтВерхнегоЛевогоУглаОбъекта&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Point&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>Nothing</span>)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>If</span>&nbsp;IsNothing(СмещениеОтВерхнегоЛевогоУглаОбъекта)&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;СмещениеОтВерхнегоЛевогоУглаОбъекта&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>New</span>&nbsp;Point(0,&nbsp;ОбъектДляПодсказки.Height)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;tt_ToolTip&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;New</span>&nbsp;ToolTip<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>With</span>&nbsp;tt_ToolTip&nbsp;:&nbsp;.OwnerDraw&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>False</span>&nbsp;:&nbsp;.IsBalloon&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>False</span>&nbsp;:&nbsp;.BackColor&nbsp;=&nbsp;Color.LemonChiffon&nbsp;:&nbsp;.AutoPopDelay&nbsp;=&nbsp;30000&nbsp;:&nbsp;.AutomaticDelay&nbsp;=&nbsp;200&nbsp;:&nbsp;.InitialDelay&nbsp;=&nbsp;200&nbsp;:&nbsp;.ToolTipIcon&nbsp;=&nbsp;ToolTipIcon.Info<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ToolTipTitle&nbsp;=&nbsp;ЗаголовокПодсказки<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Show(ТекстПодсказки,&nbsp;ОбъектДляПодсказки,&nbsp;СмещениеОтВерхнегоЛевогоУглаОбъекта,&nbsp;ВремяПоказаПодсказки)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End&nbsp;With</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Sub</span><br />\
+\
+\
+<p></p>\
+<span class=&quot;KeyComment&quot;>'вызов функции</span><br />\
+<span class=&quot;KeyWord&quot;>Call</span>&nbsp;НоваяПодсказка(cmdOk,<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Запуск&quot;,<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Кнопка: &quot;&nbsp;+&nbsp;cmdOk.Text,<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10000,<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>New</span>&nbsp;Point(cmdOk.Width,&nbsp;0))<br />\
+");

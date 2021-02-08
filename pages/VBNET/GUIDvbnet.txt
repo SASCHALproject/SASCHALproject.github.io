@@ -1,0 +1,3 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;GUID&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>&nbsp;=&nbsp;System.Guid.NewGuid.ToString()<br />\
+");

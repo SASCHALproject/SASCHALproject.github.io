@@ -1,0 +1,41 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Class</span>&nbsp;Form1<br />\
+<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Private&nbsp;Sub</span>&nbsp;Button1_Click(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;sender&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;System.<span class=&quot;KeyWord&quot;>Object</span>,&nbsp;<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;e&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;System.EventArgs)&nbsp;Handles&nbsp;Button1.Click<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Диалог&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;New</span>&nbsp;FolderBrowserDialog<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>With</span>&nbsp;Диалог<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.RootFolder&nbsp;=&nbsp;Environment.SpecialFolder.MyComputer<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ShowNewFolderButton&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>False</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Description&nbsp;=&nbsp;&quot;Выберите корневой каталог поиска&quot;<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End&nbsp;With</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>If</span>&nbsp;Диалог.ShowDialog&nbsp;=&nbsp;Windows.Forms.DialogResult.OK&nbsp;<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Коллекция&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;New</span>&nbsp;Collection<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Файлы&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Collection&nbsp;=&nbsp;Поиск(Коллекция,&nbsp;Диалог.SelectedPath,&nbsp;&quot;*.png&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>For&nbsp;Each</span>&nbsp;Файл&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String&nbsp;In</span>&nbsp;Файлы<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debug.Print(Файл)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Next</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End&nbsp;If</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End&nbsp;Sub</span><br />\
+<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Private&nbsp;Function</span>&nbsp;Поиск(<span class=&quot;KeyWord&quot;>ByRef</span>&nbsp;Коллекция&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Collection,&nbsp;<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Каталог&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>,&nbsp;<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Маска&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>)&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Collection<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Каталоги&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>()&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>Nothing</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Файлы&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>()&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>Nothing</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Try<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файлы&nbsp;=&nbsp;System.IO.Directory.GetFiles(Каталог,&nbsp;Маска)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>For&nbsp;Each</span>&nbsp;Файл&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String&nbsp;In</span>&nbsp;Файлы<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Коллекция.Add(Файл)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Next</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Каталоги&nbsp;=&nbsp;System.IO.Directory.GetDirectories(Каталог,&nbsp;&quot;*&quot;,&nbsp;IO.SearchOption.TopDirectoryOnly)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Catch&nbsp;ex&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Exception<br />\
+<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End</span>&nbsp;Try<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>If&nbsp;Not</span>&nbsp;Каталоги&nbsp;Is&nbsp;<span class=&quot;KeyWord&quot;>Nothing&nbsp;Then</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>For&nbsp;Each</span>&nbsp;Каталог&nbsp;<span class=&quot;KeyWord&quot;>In</span>&nbsp;Каталоги<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Коллекция&nbsp;=&nbsp;Поиск(Коллекция,&nbsp;Каталог,&nbsp;Маска)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Next</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End&nbsp;If</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;Коллекция<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Class</span><br />\
+");
