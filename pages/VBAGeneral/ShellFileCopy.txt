@@ -1,0 +1,50 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Option&nbsp</span><span class=&quot;KeyWord&quot;>Explicit</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp</span>Type&nbspSHFILEOPSTRUCT<br />\
+&nbsp&nbsp&nbsp&nbsphwnd&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+&nbsp&nbsp&nbsp&nbspwFunc&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+&nbsp&nbsp&nbsp&nbsppFrom&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+&nbsp&nbsp&nbsp&nbsppTo&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+&nbsp&nbsp&nbsp&nbspfFlags&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Integer<br />\
+&nbsp&nbsp&nbsp&nbspfAnyOperationsAborted&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+&nbsp&nbsp&nbsp&nbsphNameMappings&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+&nbsp&nbsp&nbsp&nbsplpszProgressTitle&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span>Type<br />\
+<br />\
+<span class=&quot;KeyComment&quot;>'раздел&nbspGeneral</span><br />\
+<span class=&quot;KeyComment&quot;>'проверка&nbspна&nbsp64-х&nbspразрядную&nbspОС;&nbspиспользуется&nbspв&nbspVBA7&nbspв&nbspMS&nbspOffice&nbsp2013</span><br />\
+<span class=&quot;KeyComment&quot;>'если&nbspиспользуется&nbspпредыдущая&nbspверсия&nbspOffice,&nbspто&nbspнеобходимо&nbspоставить&nbspтолько&nbspблок&nbsp&quot;#Else&quot;</span><br />\
+#<span class=&quot;KeyWord&quot;>If&nbsp</span>Win64&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Declare&nbsp</span><span class=&quot;KeyWord&quot;>PtrSafe&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>SHFileOperation&nbsp<span class=&quot;KeyWord&quot;>Lib&nbsp</span>&quot;shell32.dll&quot;&nbspAlias&nbsp&quot;SHFileOperationA&quot;&nbsp(lpFileOp&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>SHFILEOPSTRUCT)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+#<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Declare&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>SHFileOperation&nbsp<span class=&quot;KeyWord&quot;>Lib&nbsp</span>&quot;shell32.dll&quot;&nbspAlias&nbsp&quot;SHFileOperationA&quot;&nbsp(lpFileOp&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>SHFILEOPSTRUCT)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+#<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Const&nbsp</span>FOF_ALLOWUNDO&nbsp=&nbsp&H40<br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Const&nbsp</span>FOF_NOCONFIRMATION&nbsp=&nbsp&H10<br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Const&nbsp</span>FO_COPY&nbsp=&nbsp&H2<br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>ShellFileCopy(src&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>,&nbspdest&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span>NoConfirm&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Boolean&nbsp</span>=&nbsp<span class=&quot;KeyWord&quot;>False</span>)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Boolean</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>WinType_SFO&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>SHFILEOPSTRUCT<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>lRet&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>lflags&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+lflags&nbsp=&nbspFOF_ALLOWUNDO<br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>NoConfirm&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>lflags&nbsp=&nbsplflags&nbsp&&nbspFOF_NOCONFIRMATION<br />\
+<span class=&quot;KeyWord&quot;>With&nbsp</span>WinType_SFO<br />\
+&nbsp&nbsp&nbsp&nbsp.wFunc&nbsp=&nbspFO_COPY<br />\
+&nbsp&nbsp&nbsp&nbsp.pFrom&nbsp=&nbspsrc<br />\
+&nbsp&nbsp&nbsp&nbsp.pTo&nbsp=&nbspdest<br />\
+&nbsp&nbsp&nbsp&nbsp.fFlags&nbsp=&nbsplflags<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>With</span><br />\
+lRet&nbsp=&nbspSHFileOperation(WinType_SFO)<br />\
+ShellFileCopy&nbsp=&nbsp(lRet&nbsp=&nbsp0)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_ShellFileCopy()<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>sFileName&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>,&nbspsNewFileName&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+sFileName&nbsp=&nbsp&quot;C:\123.csv&quot;&nbsp<span class=&quot;KeyComment&quot;>'имя&nbspисходного&nbspфайла</span><br />\
+sNewFileName&nbsp=&nbsp&quot;C:\1234.csv&quot;&nbsp<span class=&quot;KeyComment&quot;>'имя&nbspфайла&nbspдля&nbspкопирования&nbsp(переименования)</span><br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>ShellFileCopy(sFileName,&nbspsNewFileName)&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>MsgBox&nbsp&quot;Готово!&nbsp:)&quot;,&nbsp64,&nbsp&quot;&quot;&nbsp<span class=&quot;KeyWord&quot;>Else&nbsp</span>MsgBox&nbsp&quot;Ошибка&quot;,&nbsp16,&nbsp&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+");

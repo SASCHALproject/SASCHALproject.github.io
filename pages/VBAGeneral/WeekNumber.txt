@@ -1,0 +1,12 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;ПолучитьНомерНедели(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Дата&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span><br />\
+<span class=&quot;KeyWord&quot;>On&nbsp;Error&nbsp;GoTo</span>&nbsp;label_err<br />\
+Дата&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CDate(</span>Дата<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Год&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>:&nbsp;Год&nbsp;=&nbsp;Format$(Дата,&nbsp;&quot;yyyy&quot;,&nbsp;vbMonday,&nbsp;vbFirstFourDays)<br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Неделя&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>:&nbsp;Неделя&nbsp;=&nbsp;Format$(Дата,&nbsp;&quot;ww&quot;,&nbsp;vbMonday,&nbsp;vbFirstFourDays)<br />\
+ПолучитьНомерНедели&nbsp;=&nbsp;Год&nbsp;+&nbsp;&quot;-&quot;&nbsp;+&nbsp;IIf(Len(Неделя)&nbsp;=&nbsp;1,&nbsp;&quot;0&quot;,&nbsp;&quot;&quot;)&nbsp;+&nbsp;Неделя<br />\
+<span class=&quot;KeyWord&quot;>Exit&nbsp;Function</span><br />\
+label_err:<br />\
+ПолучитьНомерНедели&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNA<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

@@ -1,0 +1,8 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'поиск&nbspобъектов&nbspImage&nbspна&nbspформе,&nbspу&nbspкоторых&nbspв&nbspимени&nbspесть&nbspтекст&nbsp&quot;Рисунок&quot;&nbspи&nbspскрытие&nbspих</span><br />\
+<span class=&quot;KeyWord&quot;>For&nbsp</span><span class=&quot;KeyWord&quot;>Each&nbsp</span>ctl&nbsp<span class=&quot;KeyWord&quot;>In&nbsp</span>Me.Controls<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>UCase$(TypeName(ctl))&nbsp=&nbsp&quot;IMAGE&quot;&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>If&nbsp</span>InStr(1,&nbspctl.Name,&nbsp&quot;Рисунок&quot;)&nbsp>&nbsp0&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span>ctl.Visible&nbsp=&nbsp<span class=&quot;KeyWord&quot;>False</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyWord&quot;>Next</span><br />\
+");

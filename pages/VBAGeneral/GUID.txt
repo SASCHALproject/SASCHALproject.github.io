@@ -1,0 +1,32 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Option&nbsp</span><span class=&quot;KeyWord&quot;>Explicit</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp</span>Type&nbspGUID<br />\
+&nbsp&nbsp&nbspData1&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+&nbsp&nbsp&nbspData2&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Integer<br />\
+&nbsp&nbsp&nbspData3&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Integer<br />\
+&nbsp&nbsp&nbspData4(0&nbsp<span class=&quot;KeyWord&quot;>To&nbsp</span>7)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Byte</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span>Type<br />\
+<br />\
+<span class=&quot;KeyComment&quot;>'раздел&nbspGeneral</span><br />\
+<span class=&quot;KeyComment&quot;>'проверка&nbspна&nbsp64-х&nbspразрядную&nbspОС;&nbspиспользуется&nbspв&nbspVBA7&nbspв&nbspMS&nbspOffice&nbsp2013</span><br />\
+<span class=&quot;KeyComment&quot;>'если&nbspиспользуется&nbspпредыдущая&nbspверсия&nbspOffice,&nbspто&nbspнеобходимо&nbspоставить&nbspтолько&nbspблок&nbsp&quot;#Else&quot;</span><br />\
+#<span class=&quot;KeyWord&quot;>If&nbsp</span>Win64&nbsp<span class=&quot;KeyWord&quot;>Then&nbsp</span><span class=&quot;KeyComment&quot;>'#If&nbspVBA7&nbspThen</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Declare&nbsp</span><span class=&quot;KeyWord&quot;>PtrSafe&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>CoCreateGuid&nbsp<span class=&quot;KeyWord&quot;>Lib&nbsp</span>&quot;ole32&quot;&nbsp(pguid&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>GUID)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Declare&nbsp</span><span class=&quot;KeyWord&quot;>PtrSafe&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>StringFromGUID2&nbsp<span class=&quot;KeyWord&quot;>Lib&nbsp</span>&quot;ole32&quot;&nbsp(rguid&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>GUID,&nbsp<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>lpsz&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>LongPtr</span>,&nbsp<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>cchMax&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span>)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+#<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Declare&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>CoCreateGuid&nbsp<span class=&quot;KeyWord&quot;>Lib&nbsp</span>&quot;ole32&quot;&nbsp(pguid&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>GUID)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Declare&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>StringFromGUID2&nbsp<span class=&quot;KeyWord&quot;>Lib&nbsp</span>&quot;ole32&quot;&nbsp(rguid&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>GUID,&nbsp<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>lpsz&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span>,&nbsp<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>cchMax&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span>)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span><br />\
+#<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>CreateGUID()&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Dim&nbsp</span>NewGUID&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>GUID<br />\
+&nbsp&nbsp&nbsp&nbspCoCreateGuid&nbspNewGUID<br />\
+&nbsp&nbsp&nbsp&nbspCreateGUID&nbsp=&nbspSpace$(38)<br />\
+&nbsp&nbsp&nbsp&nbspStringFromGUID2&nbspNewGUID,&nbspStrPtr(CreateGUID),&nbsp39<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_CreateGUID()<br />\
+MsgBox&nbspCreateGUID<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+");

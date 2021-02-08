@@ -1,0 +1,18 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;КоличествоДнейВМесяце(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Значение&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span><br />\
+<span class=&quot;KeyWord&quot;>If</span>&nbsp;TypeName(Значение)&nbsp;=&nbsp;&quot;Range&quot;&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;Значение&nbsp;=&nbsp;Значение.Value<br />\
+<span class=&quot;KeyWord&quot;>If</span>&nbsp;TypeName(Значение)&nbsp;=&nbsp;&quot;Date&quot;&nbsp;<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;КоличествоДнейВМесяце&nbsp;=&nbsp;Day(DateAdd(&quot;d&quot;,&nbsp;-1,&nbsp;DateSerial(Year(Значение),&nbsp;Month(DateAdd(&quot;m&quot;,&nbsp;1,&nbsp;Значение)),&nbsp;1)))<br />\
+<span class=&quot;KeyWord&quot;>ElseIf</span>&nbsp;IsNumeric(Значение)&nbsp;<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>If</span>&nbsp;Значение&nbsp;>=&nbsp;1&nbsp;<span class=&quot;KeyWord&quot;>And</span>&nbsp;Значение&nbsp;<=&nbsp;12&nbsp;<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КоличествоДнейВМесяце&nbsp;=&nbsp;Day(DateAdd(&quot;d&quot;,&nbsp;-1,&nbsp;DateAdd(&quot;m&quot;,&nbsp;1,&nbsp;DateSerial(Year(Now()),&nbsp;Значение,&nbsp;1))))<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>ElseIf</span>&nbsp;Len(Значение)&nbsp;=&nbsp;6&nbsp;<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КоличествоДнейВМесяце&nbsp;=&nbsp;Day(DateAdd(&quot;d&quot;,&nbsp;-1,&nbsp;DateAdd(&quot;m&quot;,&nbsp;1,&nbsp;DateSerial(<span class=&quot;KeyWord&quot;>CLng(</span>Left$(Значение,&nbsp;4)<span class=&quot;KeyWord&quot;>)</span>,&nbsp;<span class=&quot;KeyWord&quot;>CLng(</span>Right$(Значение,&nbsp;2)<span class=&quot;KeyWord&quot;>)</span>,&nbsp;1))))<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КоличествоДнейВМесяце&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNA<span class=&quot;KeyWord&quot;>)</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End&nbsp;If</span><br />\
+<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;КоличествоДнейВМесяце&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNum<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;If</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

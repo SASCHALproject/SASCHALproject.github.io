@@ -1,0 +1,21 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;ПолучитьИмяМесяца(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;МесяцНомер&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span>,&nbsp;<span class=&quot;KeyWord&quot;>Optional&nbsp;ByVal</span>&nbsp;Сокращенно&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Boolean</span>&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>False</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span><br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Результат&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Variant</span><br />\
+<span class=&quot;KeyWord&quot;>Select&nbsp;Case</span>&nbsp;UCase$(МесяцНомер)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;1:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Январь&quot;,&nbsp;&quot;Янв&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;2:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Февраль&quot;,&nbsp;&quot;Фев&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;3:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Март&quot;,&nbsp;&quot;Мар&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;4:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Апрель&quot;,&nbsp;&quot;Апр&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;5:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Май&quot;,&nbsp;&quot;Май&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;6:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Июнь&quot;,&nbsp;&quot;Июн&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;7:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Июль&quot;,&nbsp;&quot;Июл&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;8:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Август&quot;,&nbsp;&quot;Авг&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;9:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Сентябрь&quot;,&nbsp;&quot;Сен&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;10:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Октябрь&quot;,&nbsp;&quot;Окт&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;11:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Ноябрь&quot;,&nbsp;&quot;Ноя&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;12:&nbsp;Результат&nbsp;=&nbsp;IIf(<span class=&quot;KeyWord&quot;>Not</span>&nbsp;(Сокращенно),&nbsp;&quot;Декабрь&quot;,&nbsp;&quot;Дек&quot;)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case&nbsp;Else</span>:&nbsp;Результат&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>CVErr(</span>xlErrNA<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Select</span><br />\
+ПолучитьИмяМесяца&nbsp;=&nbsp;Результат<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

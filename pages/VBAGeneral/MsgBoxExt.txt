@@ -1,0 +1,11 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'Аналог&nbspMsgBox&nbspс&nbspвозможностью&nbspавтовыключения</span><br />\
+<span class=&quot;KeyComment&quot;>'Возвращает&nbspкод&nbspнажатой&nbspклавиши&nbspили&nbsp-1,&nbspесли&nbspвремя&nbspожидания&nbspистекло</span><br />\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_MsgBoxExt()<br />\
+d&nbsp=&nbspMsgBoxExt(&quot;Данное&nbspокно&nbspзакроется&nbspчерез&nbsp3&nbspсек.&quot;,&nbsp64,&nbsp&quot;Title&quot;,&nbsp3)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>MsgBoxExt(Prompt,&nbspButtons,&nbspTitle,&nbspSecondsToWait)<br />\
+MsgBoxExt&nbsp=&nbspCreateObject(&quot;WScript.Shell&quot;).PopUp(Prompt,&nbspSecondsToWait,&nbspTitle,&nbspButtons)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

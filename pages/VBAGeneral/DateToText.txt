@@ -1,0 +1,21 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'своеобразный&nbspаналог&nbspфункции&nbspFormat$</span><br />\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_DateToText()<br />\
+MsgBox&nbspDateToText(Now(),&nbsp0,&nbsp&quot;_&quot;)<br />\
+MsgBox&nbspDateToText(Now(),&nbsp1,&nbsp&quot;&quot;)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Function&nbsp</span>DateToText(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>DateValue&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span>Date,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Param&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long&nbsp</span>=&nbsp0,&nbsp<span class=&quot;KeyWord&quot;>Optional&nbsp</span><span class=&quot;KeyWord&quot;>ByVal&nbsp</span>Separator&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String&nbsp</span>=&nbsp&quot;_&quot;)&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span><br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>DD&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>:&nbspDD&nbsp=&nbsp<span class=&quot;KeyWord&quot;>CStr</span><span class=&quot;KeyWord&quot;>(</span>DayDateValue<span class=&quot;KeyWord&quot;>)</span>DD&nbsp=&nbspIIf(Len(DD)&nbsp< 2, &quot;0&quot; + DD, DD)<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>MM&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>:&nbspMM&nbsp=&nbsp<span class=&quot;KeyWord&quot;>CStr</span><span class=&quot;KeyWord&quot;>(</span>MonthDateValue<span class=&quot;KeyWord&quot;>)</span>MM&nbsp=&nbspIIf(Len(MM)&nbsp< 2, &quot;0&quot; + MM, MM)<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>YYYY&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>String</span>:&nbspYYYY&nbsp=&nbsp<span class=&quot;KeyWord&quot;>CStr</span><span class=&quot;KeyWord&quot;>(</span>YearDateValue<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>Select&nbsp</span><span class=&quot;KeyWord&quot;>Case&nbsp</span>Param<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>0<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDateToText&nbsp=&nbspYYYY&nbsp+&nbspSeparator&nbsp+&nbspMM&nbsp+&nbspSeparator&nbsp+&nbspDD<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span>1<br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDateToText&nbsp=&nbspYYYY&nbsp+&nbspSeparator&nbsp+&nbspMM<br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Case&nbsp</span><span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDateToText&nbsp=&nbspDD&nbsp+&nbspSeparator&nbsp+&nbspMM&nbsp+&nbspSeparator&nbsp+&nbspYYYY<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Select</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

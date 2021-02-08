@@ -1,0 +1,11 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'процедура&nbspменяет&nbspместами&nbspдва&nbspэлемента</span><br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp</span><span class=&quot;KeyWord&quot;>Sub&nbsp</span>swap(<span class=&quot;KeyWord&quot;>ByRef&nbsp</span>Value1&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Variant</span>,&nbsp<span class=&quot;KeyWord&quot;>ByRef&nbsp</span>Value2&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Variant</span>)<br />\
+<span class=&quot;KeyWord&quot;>Dim&nbsp</span>Value3&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Variant</span><br />\
+<span class=&quot;KeyWord&quot;>If&nbsp</span>IsObject(Value1)&nbsp<span class=&quot;KeyWord&quot;>Or&nbsp</span>IsObject(Value2)&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>Value3&nbsp=&nbspValue1:&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>Value1&nbsp=&nbspValue2:&nbsp<span class=&quot;KeyWord&quot;>Set&nbsp</span>Value2&nbsp=&nbspValue3<br />\
+<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbspValue3&nbsp=&nbspValue1:&nbspValue1&nbsp=&nbspValue2:&nbspValue2&nbsp=&nbspValue3<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+");

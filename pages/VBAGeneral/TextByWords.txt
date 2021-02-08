@@ -1,0 +1,21 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;ТекстПоСловам(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Текст&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>,&nbsp;<span class=&quot;KeyWord&quot;>Optional&nbsp;ByVal</span>&nbsp;ТолькоСлова&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Boolean</span>&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>False</span>)&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Collection<br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Символ&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span><br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;КодСимвола&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span><br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Слово&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;String</span>:&nbsp;Слово&nbsp;=&nbsp;&quot;&quot;<br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;Слова&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;New</span>&nbsp;Collection<br />\
+<span class=&quot;KeyWord&quot;>For</span>&nbsp;i&nbsp;=&nbsp;1&nbsp;<span class=&quot;KeyWord&quot;>To</span>&nbsp;Len(Текст)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;Символ&nbsp;=&nbsp;Mid$(Текст,&nbsp;i,&nbsp;1)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;КодСимвола&nbsp;=&nbsp;Asc(Символ)<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Select&nbsp;Case</span>&nbsp;КодСимвола<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case</span>&nbsp;48&nbsp;<span class=&quot;KeyWord&quot;>To</span>&nbsp;57,&nbsp;65&nbsp;<span class=&quot;KeyWord&quot;>To</span>&nbsp;90,&nbsp;97&nbsp;<span class=&quot;KeyWord&quot;>To</span>&nbsp;122,&nbsp;168,&nbsp;184,&nbsp;192&nbsp;<span class=&quot;KeyWord&quot;>To</span>&nbsp;255<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Слово&nbsp;=&nbsp;Слово&nbsp;+&nbsp;Символ<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>Case&nbsp;Else</span><br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>If</span>&nbsp;Слово&nbsp;<>&nbsp;&quot;&quot;&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;Слова.Add&nbsp;Слово:&nbsp;Слово&nbsp;=&nbsp;&quot;&quot;<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>If&nbsp;Not</span>&nbsp;ТолькоСлова&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;Слова.Add&nbsp;Символ<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=&quot;KeyWord&quot;>End&nbsp;Select</span><br />\
+<span class=&quot;KeyWord&quot;>Next</span>&nbsp;i<br />\
+<span class=&quot;KeyWord&quot;>If</span>&nbsp;Слово&nbsp;<>&nbsp;&quot;&quot;&nbsp;<span class=&quot;KeyWord&quot;>Then</span>&nbsp;Слова.Add&nbsp;Слово&nbsp;If Слово <> &quot;&quot; Then Слова.Add Слово<br />\
+<span class=&quot;KeyWord&quot;>Set</span>&nbsp;ТекстПоСловам&nbsp;=&nbsp;Слова<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

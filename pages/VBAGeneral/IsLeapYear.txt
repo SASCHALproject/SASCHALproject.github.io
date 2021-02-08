@@ -1,0 +1,6 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;ЭтоВисокосныйГод(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;Год&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Boolean</span><br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;КоличествоДнейВГоду&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span>:&nbsp;КоличествоДнейВГоду&nbsp;=&nbsp;ПолучитьКоличествоДнейВГоду(Год)<br />\
+ЭтоВисокосныйГод&nbsp;=&nbsp;КоличествоДнейВГоду&nbsp;=&nbsp;366<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+");

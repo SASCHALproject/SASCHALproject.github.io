@@ -1,0 +1,5 @@
+document.write("\
+<span class=&quot;KeyWord&quot;>Public&nbsp;</span><span class=&quot;KeyWord&quot;>Function&nbsp;</span>ПолучитьКоличествоДнейВГоду(<span class=&quot;KeyWord&quot;>ByVal&nbsp;</span>Год&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;</span><span class=&quot;KeyWord&quot;>Long</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;</span><span class=&quot;KeyWord&quot;>Long&nbsp;</span><br />\
+ПолучитьКоличествоДнейВГоду&nbsp;=&nbsp;366&nbsp;+&nbsp;<span class=&quot;KeyWord&quot;>CLng</span><span class=&quot;KeyWord&quot;>(</span>Год&nbsp;Mod&nbsp;4&nbsp;<>&nbsp;0&nbsp;<span class=&quot;KeyWord&quot;>Or&nbsp;</span>Год&nbsp;Mod&nbsp;100&nbsp;=&nbsp;0&nbsp;<span class=&quot;KeyWord&quot;>And&nbsp;</span>Год&nbsp;Mod&nbsp;400&nbsp;<>&nbsp;0<span class=&quot;KeyWord&quot;>)</span><br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;</span><span class=&quot;KeyWord&quot;>Function</span><br />\
+");

@@ -1,0 +1,14 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'раздел&nbspGeneral</span><br />\
+<span class=&quot;KeyComment&quot;>'проверка&nbspна&nbsp64-х&nbspразрядную&nbspОС;&nbspиспользуется&nbspв&nbspVBA7&nbspв&nbspMS&nbspOffice&nbsp2013</span><br />\
+<span class=&quot;KeyComment&quot;>'если&nbspиспользуется&nbspпредыдущая&nbspверсия&nbspOffice,&nbspто&nbspнеобходимо&nbspоставить&nbspтолько&nbspблок&nbsp&quot;#Else&quot;</span><br />\
+#<span class=&quot;KeyWord&quot;>If&nbsp</span>Win64&nbsp<span class=&quot;KeyWord&quot;>Then</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Declare&nbsp</span><span class=&quot;KeyWord&quot;>PtrSafe&nbsp</span><span class=&quot;KeyWord&quot;>Sub&nbsp</span>Sleep&nbsp<span class=&quot;KeyWord&quot;>Lib&nbsp</span>&quot;kernel32&quot;&nbsp(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>dwMilliseconds&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span>)<br />\
+#<span class=&quot;KeyWord&quot;>Else</span><br />\
+&nbsp&nbsp&nbsp&nbsp<span class=&quot;KeyWord&quot;>Public&nbsp</span><span class=&quot;KeyWord&quot;>Declare&nbsp</span><span class=&quot;KeyWord&quot;>Sub&nbsp</span>Sleep&nbsp<span class=&quot;KeyWord&quot;>Lib&nbsp</span>&quot;kernel32&quot;&nbsp(<span class=&quot;KeyWord&quot;>ByVal&nbsp</span>dwMilliseconds&nbsp<span class=&quot;KeyWord&quot;>As&nbsp</span><span class=&quot;KeyWord&quot;>Long</span>)<br />\
+#<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>If</span><br />\
+<span class=&quot;KeyComment&quot;>'вызов&nbspфункции</span><br />\
+<span class=&quot;KeyWord&quot;>Sub&nbsp</span>ВызовФункции_Sleep()<br />\
+Sleep&nbsp1000<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp</span><span class=&quot;KeyWord&quot;>Sub</span><br />\
+");

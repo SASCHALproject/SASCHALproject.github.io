@@ -1,0 +1,25 @@
+document.write("\
+<span class=&quot;KeyComment&quot;>'пользовательский класс для определения разрешения монитора пользователя</span><br />\
+<span class=&quot;KeyWord&quot;>Class</span>&nbsp;Screen<br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp;Declare&nbsp;PtrSafe&nbsp;Function</span>&nbsp;GetSystemMetrics&nbsp;<span class=&quot;KeyWord&quot;>Lib</span>&nbsp;&quot;user32.dll&quot;&nbsp;(<span class=&quot;KeyWord&quot;>ByVal</span>&nbsp;index&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span>)&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span><br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp;Const</span>&nbsp;SM_CXSCREEN&nbsp;=&nbsp;0<br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp;Const</span>&nbsp;SM_CYSCREEN&nbsp;=&nbsp;1<br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;X()&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span><br />\
+X&nbsp;=&nbsp;GetSystemMetrics(SM_CXSCREEN)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>Public&nbsp;Function</span>&nbsp;Y()&nbsp;<span class=&quot;KeyWord&quot;>As&nbsp;Long</span><br />\
+Y&nbsp;=&nbsp;GetSystemMetrics(SM_CYSCREEN)<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Function</span><br />\
+<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Class</span><br />\
+<br />\
+<span class=&quot;KeyComment&quot;>'вызов методов пользовательского класса</span><br />\
+<span class=&quot;KeyWord&quot;>Private&nbsp;Sub</span>&nbsp;ВызовМетодаКласса()<br />\
+<span class=&quot;KeyWord&quot;>Dim</span>&nbsp;cs&nbsp;<span class=&quot;KeyWord&quot;>As</span>&nbsp;Screen<br />\
+<span class=&quot;KeyWord&quot;>Set</span>&nbsp;cs&nbsp;=&nbsp;<span class=&quot;KeyWord&quot;>New</span>&nbsp;Screen<br />\
+MsgBox&nbsp;cs.X&nbsp;&&nbsp;&quot;x&quot;&nbsp;&&nbsp;cs.Y<br />\
+<span class=&quot;KeyWord&quot;>End&nbsp;Sub</span><br />\
+");

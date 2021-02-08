@@ -1,0 +1,5 @@
+document.write("\
+ТекстЗапроса&nbsp;=&nbsp;&quot;INSERT INTO &quot;&nbsp;+&nbsp;ИмяТаблица&nbsp;+&nbsp;&quot; ( Файл, [№ п/п], [Кол-во, (шт)] )&quot;&nbsp;+&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&quot; SELECT [Лист1$].Файл, [Лист1$].[№ п/п], [Лист1$].[Кол-во, (шт)]&quot;&nbsp;+&nbsp;_<br />\
+&nbsp;&nbsp;&nbsp;&nbsp;&quot; FROM [Лист1$] IN '' [Excel 12.0;HDR=Yes;IMEX=1;DATABASE=&quot;&nbsp;+&nbsp;ПутьКФайлуXLSX&nbsp;+&nbsp;&quot;];&quot;<br />\
+");
