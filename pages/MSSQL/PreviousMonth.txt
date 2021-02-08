@@ -1,0 +1,23 @@
+document.write("\
+<pre><br />\
+CREATE FUNCTION dbo.ПредыдущийМесяц(@Значение SQL_VARIANT = NULL)<br />\
+RETURNS INT<br />\
+AS<br />\
+BEGIN<br />\
+  <br />\
+  DECLARE @ПредыдущаяДата AS DATETIME<br />\
+  SET @ПредыдущаяДата = DATEADD(&quot;mm&quot;, -1, GETDATE())<br />\
+  <br />\
+  DECLARE @ПредыдущийМесяц AS INT<br />\
+  SET @ПредыдущийМесяц = MONTH(@ПредыдущаяДата)<br />\
+  <br />\
+  DECLARE @Результат AS INT<br />\
+  SET @Результат = CAST(CONCAT(YEAR(@ПредыдущаяДата), IIF(LEN(@ПредыдущийМесяц) = 1,'0',''), @ПредыдущийМесяц) AS INT)<br />\
+<br />\
+  RETURN @Результат<br />\
+<br />\
+END<br />\
+<br />\
+GO<br />\
+</pre><br />\
+");

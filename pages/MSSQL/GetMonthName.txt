@@ -1,0 +1,30 @@
+document.write("\
+<pre><br />\
+CREATE FUNCTION dbo.ПолучитьИмяМесяца (@МесяцНомер AS INT, @Сокращенно AS BIT = 0)<br />\
+RETURNS NVARCHAR(MAX)<br />\
+AS<br />\
+BEGIN<br />\
+DECLARE @Результат AS NVARCHAR(MAX)<br />\
+SET @Результат = (SELECT <br />\
+                    CASE @МесяцНомер<br />\
+                        WHEN 1 THEN IIF(@Сокращенно = 1, 'Янв', 'Январь')<br />\
+                        WHEN 2 THEN IIF(@Сокращенно = 1, 'Фев', 'Февраль')<br />\
+                        WHEN 3 THEN IIF(@Сокращенно = 1, 'Мар', 'Март')<br />\
+                        WHEN 4 THEN IIF(@Сокращенно = 1, 'Апр', 'Апрель')<br />\
+                        WHEN 5 THEN IIF(@Сокращенно = 1, 'Май', 'Май')<br />\
+                        WHEN 6 THEN IIF(@Сокращенно = 1, 'Июн', 'Июнь')<br />\
+                        WHEN 7 THEN IIF(@Сокращенно = 1, 'Июл', 'Июль')<br />\
+                        WHEN 8 THEN IIF(@Сокращенно = 1, 'Авг', 'Август')<br />\
+                        WHEN 9 THEN IIF(@Сокращенно = 1, 'Сен', 'Сентябрь')<br />\
+                        WHEN 10 THEN IIF(@Сокращенно = 1, 'Окт', 'Октябрь')<br />\
+                        WHEN 11 THEN IIF(@Сокращенно = 1, 'Ноя', 'Ноябрь')<br />\
+                        WHEN 12 THEN IIF(@Сокращенно = 1, 'Дек', 'Декабрь')<br />\
+                        ELSE 'Ошибка'<br />\
+                    END<br />\
+                  )<br />\
+  RETURN @Результат<br />\
+END<br />\
+<br />\
+GO<br />\
+</pre><br />\
+");

@@ -1,0 +1,47 @@
+document.write("\
+<pre><br />\
+CREATE FUNCTION dbo.СтавкаНДС(@Год INT) <br />\
+RETURNS DECIMAL(3, 2)<br />\
+AS<br />\
+BEGIN<br />\
+  <br />\
+  DECLARE @Результат AS DECIMAL(3, 2)<br />\
+  <br />\
+  SET @Результат = <br />\
+    CASE <br />\
+      WHEN @Год <= 2018 THEN 0.18<br />\
+      ELSE 0.20<br />\
+  END<br />\
+  <br />\
+  RETURN @Результат<br />\
+  <br />\
+END<br />\
+<br />\
+GO<br />\
+</pre><br />\
+</div><br />\
+<br />\
+<br />\
+<p></p><br />\
+<h6>Сумма без НДС</h6><br />\
+<br />\
+<div class=&quot;blockCode&quot;><br />\
+<pre><br />\
+CREATE FUNCTION dbo.СуммаБезНДС(@Год INT, @СуммаСНДС DECIMAL(38, 20)) <br />\
+RETURNS DECIMAL(38, 20)<br />\
+AS<br />\
+BEGIN<br />\
+  <br />\
+  DECLARE @СтавкаНДС AS DECIMAL(3, 2)<br />\
+  SET @СтавкаНДС = dbo.СтавкаНДС(@Год)<br />\
+  <br />\
+  DECLARE @Результат AS DECIMAL(38, 20)<br />\
+  SET @Результат = @СуммаСНДС / (1 + @СтавкаНДС)<br />\
+  <br />\
+  RETURN @Результат<br />\
+  <br />\
+END<br />\
+<br />\
+GO<br />\
+</pre><br />\
+");

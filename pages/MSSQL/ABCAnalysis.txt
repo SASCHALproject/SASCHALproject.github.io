@@ -1,0 +1,106 @@
+document.write("\
+<pre><br />\
+CREATE PROCEDURE dbo.ABC(@Период AS NVARCHAR(MAX), @ТипТТ AS NVARCHAR(MAX))<br />\
+AS <br />\
+<br />\
+/*DECLARE @Период AS NVARCHAR(MAX)<br />\
+SET @Период = N'1 квартал 2018'*/<br />\
+<br />\
+--вызов функции: EXEC dbo.ABC '1 квартал 2018'<br />\
+IF OBJECT_ID('tempdb..#TT') IS NOT NULL<br />\
+  DROP TABLE #TT<br />\
+<br />\
+SELECT<br />\
+  ABC_asr_Отбор_2.*<br />\
+  ,ROW_NUMBER() OVER (ORDER BY ABC_asr_Отбор_2.[Продажи, дал] DESC) AS row<br />\
+  ,CAST(ABC_asr_Отбор_2.[Продажи, дал] AS FLOAT) / CAST(SUM(ABC_asr_Отбор_2.[Продажи, дал]) OVER () AS FLOAT) AS [Доля, %]<br />\
+INTO #TT<br />\
+FROM (SELECT<br />\
+    ABC_asr_Отбор.Период<br />\
+   ,ABC_asr_Отбор.ИНН<br />\
+   ,ABC_asr_Отбор.КПП<br />\
+   ,ABC_asr_Отбор.[Тип ТТ]<br />\
+   ,SUM(ABC_asr_Отбор.[Продажи, дал]) AS [Продажи, дал]<br />\
+  FROM (SELECT<br />\
+      [Таблица-Продажи].Период<br />\
+     ,[Таблица-Продажи].ИНН<br />\
+     ,[Таблица-Продажи].КПП<br />\
+     ,IIF([Таблица-Организации].[Тип ТТ] = 'ХоРеКа', 'ХоРеКа', 'Розница') AS [Тип ТТ]<br />\
+     ,[Таблица-Продажи].[Код продукции]<br />\
+     ,[Таблица-Производители-Соответствие].Производитель<br />\
+     ,[Таблица-Продажи].[Продажи, дал]<br />\
+    FROM dbo.[Таблица-Продажи]<br />\
+    INNER JOIN dbo.[Таблица-Производители-Соответствие]<br />\
+      ON [Таблица-Продажи].[ИНН производителя] = [Таблица-Производители-Соответствие].[ИНН производителя]<br />\
+      AND [Таблица-Продажи].[КПП производителя] = [Таблица-Производители-Соответствие].[КПП производителя]<br />\
+    INNER JOIN dbo.[Таблица-Организации]<br />\
+      ON [Таблица-Продажи].ИНН = [Таблица-Организации].ИНН<br />\
+      AND [Таблица-Продажи].КПП = [Таблица-Организации].КПП<br />\
+    WHERE [Таблица-Продажи].[Сведения о действии лицензии] = 1<br />\
+    AND [Таблица-Производители-Соответствие].Производитель IN ('Производитель1', 'Производитель2', 'Производитель3')<br />\
+    AND [Таблица-Продажи].[Код продукции] = 200<br />\
+    AND [Таблица-Организации].[КПП Исключить] = 0<br />\
+    AND [Таблица-Организации].[Тип ТТ] NOT IN ('Федеральная сеть')) ABC_asr_Отбор<br />\
+  WHERE ABC_asr_Отбор.Период = @Период<br />\
+  AND ABC_asr_Отбор.[Тип ТТ] = @ТипТТ<br />\
+  GROUP BY ABC_asr_Отбор.Период<br />\
+          ,ABC_asr_Отбор.ИНН<br />\
+          ,ABC_asr_Отбор.КПП<br />\
+          ,ABC_asr_Отбор.[Тип ТТ]) ABC_asr_Отбор_2<br />\
+<br />\
+SELECT t1.*, t1.[Доля, %] + ISNULL(totalSum.s, 0) [Накопление доли, %] <br />\
+INTO [#TT-Доли]<br />\
+FROM #TT t1<br />\
+  OUTER APPLY (SELECT SUM(t2.[Доля, %]) s FROM #TT t2 <br />\
+    WHERE t2.row < t1.row) totalSum<br />\
+<br />\
+SELECT * <br />\
+  ,CASE <br />\
+    WHEN [Накопление доли, %] BETWEEN 0 AND 0.80 THEN 'A'<br />\
+    WHEN [Накопление доли, %] > 0.95 THEN 'C'<br />\
+    ELSE 'B' END [Признак ABC]<br />\
+FROM [#TT-Доли] t3<br />\
+ORDER BY t3.row<br />\
+<br />\
+DROP TABLE [#TT-Доли]<br />\
+DROP TABLE #TT<br />\
+<br />\
+/*IF @@ERROR <> 0   <br />\
+    BEGIN  <br />\
+        -- Return 99 to the calling program to indicate failure.  <br />\
+        PRINT N'An error occurred deleting the candidate information.';  <br />\
+        RETURN 99;  <br />\
+    END  <br />\
+ELSE  <br />\
+    BEGIN  <br />\
+        -- Return 0 to the calling program to indicate success.  <br />\
+        PRINT N'The job candidate has been deleted.';  <br />\
+        RETURN 0;  <br />\
+    END; */<br />\
+<br />\
+GO<br />\
+</pre><br />\
+</div><br />\
+<br />\
+<br />\
+<br />\
+<p></p><br />\
+<br />\
+<br />\
+<h6>Вызов хранимой процедуры 'dbo.ABC'</h6><br />\
+<div class=&quot;blockCode&quot;><br />\
+<pre><br />\
+CREATE PROCEDURE dbo.[ABC-Выполнить]<br />\
+AS <br />\
+<br />\
+--DELETE FROM dbo.[Таблица-ABC]<br />\
+<br />\
+DECLARE @Период AS NVARCHAR(MAX)<br />\
+SET @Период = N'2 квартал 2018'<br />\
+<br />\
+INSERT [Таблица-ABC] EXEC dbo.ABC @Период, N'Розница'<br />\
+INSERT [Таблица-ABC] EXEC dbo.ABC @Период, N'ХоРеКа'<br />\
+<br />\
+GO<br />\
+</pre><br />\
+");

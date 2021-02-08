@@ -1,0 +1,17 @@
+document.write("\
+<pre><br />\
+CREATE FUNCTION dbo.ПолучитьNEXTСКЮКод() <br />\
+RETURNS INT<br />\
+AS<br />\
+BEGIN<br />\
+  DECLARE @Результат AS INT<br />\
+  <br />\
+  SET @Результат = (SELECT MAX(Справочник_товаров.[СКЮ Код]) + 1 AS [NEXT СКЮ Код]<br />\
+                                                                  FROM dbo.Справочник_товаров)<br />\
+  <br />\
+  RETURN @Результат<br />\
+END<br />\
+<br />\
+GO<br />\
+</pre><br />\
+");

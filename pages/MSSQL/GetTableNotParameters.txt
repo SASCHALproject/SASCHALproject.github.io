@@ -1,0 +1,12 @@
+document.write("\
+<pre><br />\
+CREATE FUNCTION dbo.[Справочник товаров_] ()<br />\
+RETURNS TABLE AS RETURN(<br />\
+  SELECT<br />\
+  Справочник_товаров.*<br />\
+FROM dbo.Справочник_товаров<br />\
+WHERE Справочник_товаров.[Не использовать] = 0<br />\
+)<br />\
+GO<br />\
+</pre><br />\
+");

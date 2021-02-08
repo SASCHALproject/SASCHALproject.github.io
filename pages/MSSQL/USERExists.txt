@@ -1,0 +1,5 @@
+document.write("\
+<pre><br />\
+SELECT COUNT(*) FROM sys.database_principals WHERE type IN('S', 'U') AND name = 'USER_1'<br />\
+</pre><br />\
+");

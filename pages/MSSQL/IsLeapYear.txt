@@ -1,0 +1,19 @@
+document.write("\
+<pre><br />\
+CREATE FUNCTION dbo.ЭтоВисокосныйГод(@Год As INT) <br />\
+RETURNS BIT<br />\
+AS<br />\
+BEGIN<br />\
+  DECLARE @Результат AS BIT<br />\
+  DECLARE @КоличествоДнейВГоду AS INT <br />\
+  <br />\
+  SET @КоличествоДнейВГоду = (SELECT 366 +IIF( @Год % 4 <> 0 Or (@Год % 100 = 0 And @Год % 400 <> 0), -1, 0))<br />\
+  <br />\
+  SET @Результат = (SELECT IIF(@КоличествоДнейВГоду = 366, 1, 0))<br />\
+  <br />\
+  RETURN @Результат<br />\
+END<br />\
+<br />\
+GO<br />\
+</pre><br />\
+");
