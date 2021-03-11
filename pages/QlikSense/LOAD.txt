@@ -1,6 +1,4 @@
 document.write("\
-<h4>Функция LOAD</h4><br />\
-<br />\
 <h3>Загрузка из Excel</h3><br />\
 <div class=&quot;blockCode&quot;><br />\
 <pre><br />\
@@ -18,7 +16,7 @@ document.write("\
 <h3>Загрузка из БД</h3><br />\
 <div class=&quot;blockCode&quot;><br />\
 <pre><br />\
-<span class=&quot;QSKeyWord&quot;>LIB CONNECT TO</span> <span class=&quot;QSText&quot;>'db.accdb'</span>;<br />\
+<span class=&quot;QSKeyWord&quot;>LIB CONNECT TO</span> <span class=&quot;QSText&quot;>`db.accdb`</span>;<br />\
 <br />\
 <span class=&quot;QSKeyName&quot;>[ИмяТаблицыQS]:</span><br />\
 <span class=&quot;QSKeyWord&quot;>LOAD</span><br />\

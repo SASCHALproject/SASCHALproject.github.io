@@ -57,9 +57,11 @@
                     <a class="nav-link" id="v-pills-02-tab" data-toggle="pill" href="#v-pills-02" role="tab"
                         aria-controls="v-pills-02" aria-selected="false">Данные</a>
                     <a class="nav-link" id="v-pills-03-tab" data-toggle="pill" href="#v-pills-03" role="tab"
-                        aria-controls="v-pills-03" aria-selected="false">DEV-HUB</a>
+                        aria-controls="v-pills-03" aria-selected="false">Функции скрипта</a>
                     <a class="nav-link" id="v-pills-04-tab" data-toggle="pill" href="#v-pills-04" role="tab"
-                        aria-controls="v-pills-04" aria-selected="false">Другое</a>
+                        aria-controls="v-pills-04" aria-selected="false">DEV-HUB</a>
+                    <a class="nav-link" id="v-pills-05-tab" data-toggle="pill" href="#v-pills-05" role="tab"
+                        aria-controls="v-pills-05" aria-selected="false">Другое</a>
                 </div>
             </div>
             <!-- Список (группы) -->
@@ -116,7 +118,7 @@
 
                     <div class="tab-pane fade" id="v-pills-03" role="tabpanel" aria-labelledby="v-pills-03-tab">
 
-                        <div class="h4 text-light bg-primary p-2">DEV-HUB</div>
+                        <div class="h4 text-light bg-primary p-2">Функции скрипта</div>
 
                         <div id="accordionP003">
 
@@ -124,9 +126,44 @@
 
                                 idParent = "P003";
 
-                                caption = "Виджет SAS_KPI";
+                                /*caption = "LOAD";
                                 id = "004";
-                                link = "Widget_SAS_KPI.txt";
+                                link = "LOAD.txt";
+                                card_collapse_print(caption, id, idParent, false, link);*/
+
+                                /*caption = "FOR";
+                                id = "005";
+                                link = "FOR.txt";
+                                card_collapse_print(caption, id, idParent, false, link);*/
+
+                                caption = "Перехват ошибок";
+                                id = "006";
+                                link = "InterceptsErrors.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Принудительное завершение выполнения скрипта";
+                                id = "007";
+                                link = "ExitScript.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Номер месяца из имени";
+                                id = "008";
+                                link = "MonthNameToNumber.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Символ &quot;пробела&quot; для форматирования числа";
+                                id = "009";
+                                link = "Alt255.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Проверка наличия файла";
+                                id = "010";
+                                link = "IsFileExists.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                                caption = "Работа с датой и временем";
+                                id = "011";
+                                link = "DateTime.txt";
                                 card_collapse_print(caption, id, idParent, false, link);
 
                             </script>
@@ -137,7 +174,7 @@
 
                     <div class="tab-pane fade" id="v-pills-04" role="tabpanel" aria-labelledby="v-pills-04-tab">
 
-                        <div class="h4 text-light bg-primary p-2">Другое</div>
+                        <div class="h4 text-light bg-primary p-2">DEV-HUB</div>
 
                         <div id="accordionP004">
 
@@ -145,44 +182,30 @@
 
                                 idParent = "P004";
 
-                                caption = "LOAD";
-                                id = "005";
-                                link = "LOAD.txt";
-                                card_collapse_print(caption, id, idParent, false, link);
-
-                                caption = "FOR";
-                                id = "006";
-                                link = "FOR.txt";
-                                card_collapse_print(caption, id, idParent, false, link);
-
-                                caption = "Перехват ошибок";
-                                id = "007";
-                                link = "InterceptsErrors.txt";
-                                card_collapse_print(caption, id, idParent, false, link);
-
-                                caption = "Принудительное завершение выполнения скрипта";
-                                id = "008";
-                                link = "ExitScript.txt";
-                                card_collapse_print(caption, id, idParent, false, link);
-
-                                caption = "Номер месяца из имени";
-                                id = "009";
-                                link = "MonthNameToNumber.txt";
-                                card_collapse_print(caption, id, idParent, false, link);
-
-                                caption = "Символ &quot;пробела&quot; для форматирования числа";
-                                id = "010";
-                                link = "Alt255.txt";
-                                card_collapse_print(caption, id, idParent, false, link);
-
-                                caption = "Проверка наличия файла";
-                                id = "011";
-                                link = "IsFileExists.txt";
-                                card_collapse_print(caption, id, idParent, false, link);
-
-                                caption = "Работа с датой и временем";
+                                caption = "Виджет SAS_KPI";
                                 id = "012";
-                                link = "DateTime.txt";
+                                link = "Widget_SAS_KPI.txt";
+                                card_collapse_print(caption, id, idParent, false, link);
+
+                            </script>
+
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-05" role="tabpanel" aria-labelledby="v-pills-05-tab">
+
+                        <div class="h4 text-light bg-primary p-2">Другое</div>
+
+                        <div id="accordionP005">
+
+                            <script language="javascript">
+
+                                idParent = "P005";
+
+                                caption = "Скрытие кнопок у сводной таблицы";
+                                id = "013";
+                                link = "PivotTableHideButton.txt";
                                 card_collapse_print(caption, id, idParent, false, link);
 
                             </script>

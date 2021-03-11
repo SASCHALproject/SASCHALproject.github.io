@@ -1,0 +1,24 @@
+document.write("\
+<em><br />\
+  <p><br />\
+    На лист добавить объект <b><i>&quot;Сводная таблица&quot;</i></b> (<b><i>&quot;Pivot Table&quot;</i></b>).<br />\
+  </p><br />\
+  <p><br />\
+    Добавить объект <b><i>&quot;Multi KPI&quot;</i></b>. <b>Меню:</b> <i>Вид => Styles => Styles (CSS)</i>.<br />\
+  </p><br />\
+</em><br />\
+<br />\
+<div class=&quot;blockCode&quot;><br />\
+<pre><br />\
+<span class=&quot;QSComment&quot;>/* Спрятать кнопки сводной таблицы */</span><br />\
+<span class=&quot;QSPoleName&quot;>.qv-pt .meta *</span> {<br />\
+    <span class=&quot;QSKeyWord&quot;>display</span>: <span class=&quot;QSVariable&quot;>none</span>;<br />\
+}<br />\
+<br />\
+<span class=&quot;QSComment&quot;>/* Спрятать объект &quot;Multi KPI&quot; */</span><br />\
+<span class=&quot;QSPoleName&quot;>.qv-object-qlik-multi-kpi</span> {<br />\
+    <span class=&quot;QSKeyWord&quot;>display</span>: <span class=&quot;QSVariable&quot;>none</span>;<br />\
+}<br />\
+</pre><br />\
+</div><br />\
+");

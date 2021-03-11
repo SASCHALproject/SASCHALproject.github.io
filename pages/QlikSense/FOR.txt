@@ -1,6 +1,4 @@
 document.write("\
-<h4>Функция For</h4><br />\
-<br />\
 <h3>For...Next</h3><br />\
 <div class=&quot;blockCode&quot;><br />\
 <pre><br />\
